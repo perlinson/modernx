@@ -52,6 +52,7 @@
     "validate:dependencies": "node scripts/validate-monorepo.js dependencies",
     "validate:circular": "node scripts/validate-monorepo.js circular",
     "create:package": "node scripts/create-package.js",
+    "deploy:pages": "./scripts/deploy-pages.sh",
     "prepublishOnly": "npm run build:simple",
     "cli:build": "cd cli && npm run build",
     "cli:test": "cd cli && npm test",
