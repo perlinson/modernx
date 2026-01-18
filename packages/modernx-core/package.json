@@ -1,6 +1,6 @@
 {
   "name": "modernx-core",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The core lightweight library for modernx, based on redux and redux-saga.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
