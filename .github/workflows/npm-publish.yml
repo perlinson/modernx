@@ -60,6 +60,11 @@ jobs:
           npm publish --access public
           cd ../..
           
+          echo "Publishing modernx..."
+          cd packages/modernx
+          npm publish --access public
+          cd ../..
+          
           echo "Publishing modernx-immer..."
           cd packages/modernx-immer
           npm publish --access public
@@ -70,8 +75,8 @@ jobs:
           npm publish --access public
           cd ../..
           
-          echo "Publishing modernx..."
-          cd packages/modernx
+          echo "Publishing modernx-cli..."
+          cd packages/modernx-cli
           npm publish --access public
           cd ../..
         env:
@@ -84,6 +89,7 @@ jobs:
           npm view modernx-core@$(node -p "require('./packages/modernx-core/package.json').version")
           npm view modernx-immer@$(node -p "require('./packages/modernx-immer/package.json').version")
           npm view modernx-loading@$(node -p "require('./packages/modernx-loading/package.json').version")
+          npm view modernx-cli@$(node -p "require('./packages/modernx-cli/package.json').version")
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
@@ -100,6 +106,7 @@ jobs:
             - modernx-core@$(node -p "require('./packages/modernx-core/package.json').version")
             - modernx-immer@$(node -p "require('./packages/modernx-immer/package.json').version")
             - modernx-loading@$(node -p "require('./packages/modernx-loading/package.json').version")
+            - modernx-cli@$(node -p "require('./packages/modernx-cli/package.json').version")
             
             ### 📋 Changes
             See [CHANGELOG.md](https://github.com/perlinson/modernx/blob/main/CHANGELOG.md) for detailed changes.
