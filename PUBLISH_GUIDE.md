@@ -96,7 +96,7 @@ npm install @yourname/modernx --registry http://your-private-registry.com
 
 ### 语义化版本
 - `2.0.0-react18`: 首次发布
-- `2.0.1-react18`: 补丁更新
+- `1.0.0`: 补丁更新
 - `2.1.0-react18`: 小版本更新
 - `3.0.0-react18`: 大版本更新
 

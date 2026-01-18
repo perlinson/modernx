@@ -13,7 +13,7 @@
 - ✅ **modernx-loading**: `modernx-loading` → `modernx-loading`
 
 ### 2. 版本更新
-- ✅ **主包版本**: `2.0.1-react18`
+- ✅ **主包版本**: `1.0.0`
 - ✅ **包描述**: 更新为现代化 React 状态管理框架
 
 ### 3. 文档重命名
@@ -69,7 +69,7 @@ modernx dev
 ```json
 {
   "dependencies": {
-    "modernx": "^2.0.1-react18"
+    "modernx": "^1.0.0"
   }
 }
 ```
@@ -136,7 +136,7 @@ npm run build:simple
 ## 📞 支持信息
 
 ### 包信息
-- **主包**: modernx@2.0.1-react18
+- **主包**: modernx@1.0.0
 - **CLI**: modernx-cli@1.0.0
 - **子包**: modernx-core, modernx-immer, modernx-loading
 

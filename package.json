@@ -1,6 +1,6 @@
 {
   "name": "modernx",
-  "version": "2.0.1-react18",
+  "version": "1.0.0",
   "description": "Modern React state management framework with concurrent features and modern toolchain",
   "private": true,
   "main": "lib/index.js",
