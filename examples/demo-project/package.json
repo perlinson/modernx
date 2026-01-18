@@ -1,0 +1,17 @@
+{
+  "name": "demo-modernx-app",
+  "version": "1.0.0",
+  "description": "Demo ModernX application for GUI testing",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "modernx": "workspace:*",
+    "modernx-gui": "workspace:*"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0"
+  }
+}

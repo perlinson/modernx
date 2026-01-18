@@ -13,8 +13,8 @@
     "modernx": "./bin/modernx"
   },
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib",
-    "dev": "babel src --out-dir lib --watch",
+    "build": "rm -rf lib && npx babel src --out-dir lib",
+    "dev": "npx babel src --out-dir lib --watch",
     "test": "node test/cli.test.js"
   },
   "dependencies": {

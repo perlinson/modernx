@@ -1,11 +1,21 @@
 module.exports = {
-  collectCoverageFrom: ['packages/**/src/*.{ts,tsx,js,jsx}'],
-  testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest',
+  testEnvironment: 'node',
+  testMatch: [
+    '**/__tests__/**/*.js',
+    '**/?(*.)+(spec|test).js'
+  ],
+  collectCoverageFrom: [
+    'packages/*/src/**/*.{js,jsx,ts,tsx}',
+    '!packages/*/src/**/*.d.ts',
+    '!packages/*/src/**/index.js'
+  ],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['text', 'lcov', 'html'],
+  projects: [
+    '<rootDir>/packages/*'
+  ],
+  moduleNameMapper: {
+    '^@modernx/(.*)$': '<rootDir>/packages/$1/src'
   },
-  moduleNameMapping: {
-    '^@/(.*)$': '<rootDir>/packages/modernx/$1',
-  },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
 };

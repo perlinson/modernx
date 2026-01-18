@@ -1,0 +1,6 @@
+{"name": "modernx-gui", "version": "1.0.2", "description": "ModernX development GUI with real-time visualization", "main": "dist/index.js", "bin": {"modernx-gui": "bin/modernx-gui"}, "scripts": {
+    "start": "node bin/modernx-gui",
+    "dev": "npx webpack -w",
+    "build": "npx webpack",
+    "test": "mocha test/**/*-test.js --require babel-register --require ./test/setup --no-timeouts"
+  }, "dependencies": {"@babel/runtime": "^7.20.0", "express": "^4.18.0", "ws": "^8.0.0", "opn": "^6.0.0", "chokidar": "^3.5.0", "dva": "^1.1.0"}, "peerDependencies": {"modernx": "^1.0.0"}, "devDependencies": {"modernx": "*", "webpack": "^5.0.0", "babel-loader": "^9.0.0", "@babel/core": "^7.20.0", "@babel/preset-env": "^7.20.0", "@babel/preset-react": "^7.18.0", "css-loader": "^6.0.0", "style-loader": "^3.0.0", "mocha": "^10.0.0"}, "files": ["dist", "bin", "src"], "repository": {"type": "git", "url": "https://github.com/perlinson/modernx/tree/master/packages/modernx-gui"}, "homepage": "https://github.com/perlinson/modernx", "author": "perlinson <perlinson2024@gmail.com>", "keywords": ["modernx", "modernx-plugin", "gui", "debugging", "visualization"], "license": "MIT"}

@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **🛠️ DVA Tools Integration**: Complete integration of dva-logger and dva-gui into ModernX
+  - **modernx-logger**: New Redux logger plugin for comprehensive debugging
+  - **modernx-gui**: New development GUI with real-time visualization
+  - **CLI Integration**: Enhanced modernx-cli with tools options
+  - **WebSocket Communication**: Real-time state synchronization
+  - **Hot Module Replacement**: Live updates during development
+  - **Cross-browser Compatibility**: Graceful degradation support
+
+### Technical Details
+- **Package Structure**: Both packages follow ModernX plugin conventions
+- **Dependencies**: Updated to include redux-logger, express, ws, opn
+- **Testing**: Added comprehensive tests for all functionality
+- **Build Process**: Integrated with existing ModernX build pipeline
+- **Documentation**: Complete API reference and usage examples
+
+### Migration Notes
+- **From dva-logger**: Direct API compatibility, drop-in replacement
+- **From dva-gui**: Enhanced web-based GUI with improved features
+- **Breaking Changes**: None - fully backward compatible
+
 ## [1.0.2] - 2024-01-18
 
 ### Added

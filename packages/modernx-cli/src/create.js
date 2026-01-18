@@ -37,7 +37,7 @@ async function create(projectName, options) {
     const template = await selectTemplate(templateName);
     
     // 生成项目文件
-    await generateProject(projectPath, template, projectName);
+    await generateProject(projectPath, template, projectName, toolOptions);
     
     spinner.succeed('Project structure created');
     
@@ -85,12 +85,26 @@ async function selectTemplate(templateName) {
     }
   };
   
+  // Add ModernX tools options
+  const toolOptions = {
+    logger: {
+      name: 'modernx-logger',
+      description: 'Redux logger for debugging',
+      enabled: false
+    },
+    gui: {
+      name: 'modernx-gui', 
+      description: 'Development GUI with real-time visualization',
+      enabled: false
+    }
+  };
+  
   if (templateName && templates[templateName]) {
     return templates[templateName];
   }
   
-  // 交互式选择模板
-  const { template } = await inquirer.prompt([
+  // 交互式选择模板和工具
+  const answers = await inquirer.prompt([
     {
       type: 'list',
       name: 'template',
@@ -101,13 +115,63 @@ async function selectTemplate(templateName) {
         { name: 'React 18 - Concurrent features demo', value: 'react18' },
         { name: 'Enterprise - Enterprise ready project', value: 'enterprise' }
       ]
+    },
+    {
+      type: 'checkbox',
+      name: 'selectedTools',
+      message: 'Choose additional tools (optional):',
+      choices: [
+        { name: 'Logger - Redux logger for debugging', value: 'logger' },
+        { name: 'GUI - Development GUI with real-time visualization', value: 'gui' }
+      ]
     }
   ]);
+  
+  const { template, selectedTools } = answers;
+  
+  // Enable selected tools
+  if (selectedTools.includes('logger')) {
+    toolOptions.logger.enabled = true;
+  }
+  if (selectedTools.includes('gui')) {
+    toolOptions.gui.enabled = true;
+  }
   
   return templates[template];
 }
 
-async function generateProject(projectPath, template, projectName) {
+async function installSelectedTools(projectPath, toolOptions) {
+  const { exec } = require('child_process');
+  const util = require('util');
+  const execAsync = util.promisify(exec);
+  
+  const enabledTools = Object.entries(toolOptions)
+    .filter(([, config]) => config.enabled)
+    .map(([key]) => key);
+  
+  if (enabledTools.length === 0) {
+    return;
+  }
+  
+  console.log(chalk.blue('\n🔧 Installing selected tools...'));
+  
+  for (const tool of enabledTools) {
+    try {
+      const packageName = toolOptions[tool].name;
+      console.log(chalk.gray(`Installing ${packageName}...`));
+      
+      // Change to project directory and install
+      process.chdir(projectPath);
+      await execAsync(`npm install ${packageName} --save-dev`);
+      
+      console.log(chalk.green(`✅ ${packageName} installed successfully`));
+    } catch (error) {
+      console.warn(chalk.yellow(`⚠️  Failed to install ${toolOptions[tool].name}:`, error.message));
+    }
+  }
+}
+
+async function generateProject(projectPath, template, projectName, toolOptions) {
   const templatePath = join(TEMPLATES_DIR, template.name);
   
   if (!fs.existsSync(templatePath)) {
@@ -121,8 +185,12 @@ async function generateProject(projectPath, template, projectName) {
   await processTemplateFiles(projectPath, {
     projectName,
     templateName: template.name,
-    description: template.description
+    description: template.description,
+    tools: toolOptions
   });
+  
+  // 安装选中的工具
+  await installSelectedTools(projectPath, toolOptions);
   
   // 创建 README
   await createReadme(projectPath, template, projectName);

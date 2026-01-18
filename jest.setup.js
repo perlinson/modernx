@@ -1,23 +1,22 @@
-// Jest setup file for React 18 compatibility
-import '@testing-library/jest-dom';
 
-// Mock React 18 createRoot API for testing
-global.HTMLElement.prototype.scrollIntoView = jest.fn();
+// 测试环境设置
+process.env.NODE_ENV = 'test';
+process.env.MODERNX_ENV = 'test';
 
-// Suppress React 18 Strict Mode double-rendering warnings in tests
-const originalError = console.error;
-beforeAll(() => {
-  console.error = (...args) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('Warning: You are calling ReactDOM.render()')
-    ) {
-      return;
-    }
-    originalError.call(console, ...args);
-  };
-});
+// 设置测试超时
+jest.setTimeout(30000);
 
-afterAll(() => {
-  console.error = originalError;
-});
+// 全局测试工具
+global.console = {
+  ...console,
+  log: jest.fn(),
+  warn: jest.fn(),
+  error: console.error,
+};
+
+// 模拟浏览器环境
+if (typeof window === 'undefined') {
+  global.window = {};
+  global.document = {};
+  global.navigator = {};
+}

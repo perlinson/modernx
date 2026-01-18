@@ -30,6 +30,8 @@ Modern React state management framework with concurrent features and modern tool
 - **Zero Configuration**: Out of the box with sensible defaults
 - **Modern Toolchain**: Built with Node.js 18, latest Babel, and modern build tools
 - **Hot Reload**: Development experience with HMR
+- **Debugging Tools**: Built-in logger and GUI visualization tools
+- **CLI Integration**: Project scaffolding with optional tools
 
 ### 🔄 Backward Compatible
 - **100% API Compatibility**: Existing projects upgrade without code changes
@@ -112,6 +114,60 @@ export default connect(
   ({ count }) => ({ count }),
   ({ add, minus, asyncAdd }) => ({ add, minus, asyncAdd })
 )(Counter);
+```
+
+---
+
+## 🛠️ Development Tools
+
+### Logger Plugin
+
+Add comprehensive Redux logging to your ModernX application:
+
+```javascript
+import modernx from 'modernx';
+import logger from 'modernx-logger';
+
+const app = modernx({
+  plugins: [logger({
+    collapsed: true,
+    duration: true,
+    timestamp: true,
+  })],
+});
+```
+
+### GUI Development Tool
+
+Start the development GUI for real-time state visualization:
+
+```bash
+# Start GUI from project directory
+npx modernx-gui
+
+# Or include in project creation
+npx modernx create my-app --tools gui
+```
+
+The GUI provides:
+- **Real-time State Visualization**: Live display of Redux state changes
+- **Action History**: Complete timeline of all actions with payloads
+- **Project Structure Analysis**: Automatic detection of ModernX models
+- **WebSocket Communication**: Real-time synchronization with your app
+
+### CLI Integration
+
+Create new ModernX projects with optional debugging tools:
+
+```bash
+# Create project with logger and GUI
+npx modernx create my-app --tools logger,gui
+
+# Interactive project creation
+npx modernx create my-app
+# Select tools during setup:
+# - Logger: Redux logger for debugging
+# - GUI: Development GUI with real-time visualization
 ```
 
 ---

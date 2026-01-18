@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const { startServer } = require('../lib/server');
+const { detectProject } = require('../lib/project-detector');
+const { openBrowser } = require('../lib/browser');
+
+async function main() {
+  try {
+    console.log('🚀 Starting ModernX GUI...');
+    
+    // Detect current project structure
+    const projectInfo = await detectProject(process.cwd());
+    console.log('📁 Project detected:', projectInfo.name);
+    
+    // Start development server
+    const server = await startServer({
+      port: 3000,
+      projectInfo,
+    });
+    
+    console.log(`🌐 GUI Server running at: ${server.url}`);
+    
+    // Open browser automatically
+    await openBrowser(server.url);
+    console.log('✅ ModernX GUI is ready!');
+    
+  } catch (error) {
+    console.error('❌ Failed to start ModernX GUI:', error.message);
+    process.exit(1);
+  }
+}
+
+main();

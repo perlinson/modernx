@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../dva-cli"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../dva-gui"
+		},
+		{
+			"path": "../../dva-logger"
+		}
+	],
+	"settings": {}
+}
