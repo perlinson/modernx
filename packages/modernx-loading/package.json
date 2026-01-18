@@ -1,0 +1,35 @@
+{
+  "name": "modernx-loading",
+  "version": "1.0.0",
+  "description": "Auto loading data binding plugin for modernx.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "sideEffects": false,
+  "typings": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/perlinson/modernx"
+  },
+  "homepage": "https://github.com/perlinson/modernx",
+  "keywords": [
+    "modernx",
+    "modernx-plugin",
+    "loading"
+  ],
+  "author": "perlinson <perlinson2024@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "modernx": "*",
+    "modernx-core": "*"
+  },
+  "peerDependencies": {
+    "modernx-core": "^1.0.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.20.0"
+  }
+}
