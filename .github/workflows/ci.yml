@@ -27,7 +27,7 @@ jobs:
       run: npm install --legacy-peer-deps
     
     - name: Bootstrap packages
-      run: npx lerna bootstrap --no-ci
+      run: npx lerna bootstrap --no-ci --legacy-peer-deps
     
     - name: Build packages
       run: |
