@@ -1,5 +1,5 @@
 /**
- * modernx-react18 add 命令
+ * modernx add 命令
  * 为当前项目添加功能模块
  */
 
@@ -53,10 +53,10 @@ async function add(feature, options) {
   console.log(chalk.blue.bold('\n🚀 Adding feature to project...'));
   console.log(chalk.gray(`Feature: ${feature}`));
   
-  // 检查当前目录是否为 modernx-react18 项目
+  // 检查当前目录是否为 modernx 项目
   if (!isModernXProject()) {
-    console.log(chalk.red('❌ Current directory is not a modernx-react18 project!'));
-    console.log(chalk.gray('Please run this command in a project directory created with modernx-react18.'));
+    console.log(chalk.red('❌ Current directory is not a modernx project!'));
+    console.log(chalk.gray('Please run this command in a project directory created with modernx.'));
     process.exit(1);
   }
   
@@ -113,7 +113,7 @@ function isModernXProject() {
   try {
     const packageJson = fs.readJsonSync(packageJsonPath);
     return packageJson.dependencies && (
-      packageJson.dependencies['modernx-react18'] ||
+      packageJson.dependencies['modernx'] ||
       packageJson.dependencies.modernx
     );
   } catch (error) {
@@ -228,7 +228,7 @@ async function updateRouterConfig() {
   
   const routerConfig = `import { createBrowserHistory } from 'history';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
-import { createApp } from 'modernx-react18';
+import { createApp } from 'modernx';
 
 const history = createBrowserHistory();
 const app = createApp({

@@ -13,7 +13,7 @@ const chalk = require('chalk');
 const CLI_DIR = path.join(__dirname, '../cli');
 
 async function publishCLI() {
-  console.log(chalk.blue.bold('\n🚀 Publishing modernx-react18 CLI...\n'));
+  console.log(chalk.blue.bold('\n🚀 Publishing modernx CLI...\n'));
   
   try {
     // 检查 CLI 目录
@@ -48,9 +48,9 @@ async function publishCLI() {
     
     console.log(chalk.green.bold('\n✅ CLI published successfully!'));
     console.log(chalk.blue.bold('\n📋 Installation:'));
-    console.log(chalk.gray('  npm install -g modernx-react18-cli'));
+    console.log(chalk.gray('  npm install -g modernx-cli'));
     console.log(chalk.gray('  # 或者直接使用 npx'));
-    console.log(chalk.gray('  npx modernx-react18 create my-app'));
+    console.log(chalk.gray('  npx modernx create my-app'));
     
   } catch (error) {
     console.error(chalk.red('\n❌ CLI publish failed:'), error.message);

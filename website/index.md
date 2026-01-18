@@ -103,7 +103,7 @@ app.start('#root');
   </a>
 </div>
 
-**modernx-react18** 是 modernx 框架的 React 18 增强版本，提供了现代化的开发体验和更好的性能。
+**modernx** 是 modernx 框架的 React 18 增强版本，提供了现代化的开发体验和更好的性能。
 
 ### 🚀 主要特性
 
@@ -116,13 +116,13 @@ app.start('#root');
 ### 📦 快速安装
 
 ```bash
-npm install modernx-react18
+npm install modernx
 ```
 
 ### 🔧 快速开始
 
 ```javascript
-import { createApp, connect } from 'modernx-react18';
+import { createApp, connect } from 'modernx';
 
 const app = createApp({
   // 你的 models
@@ -152,7 +152,7 @@ export default app._store;
 ### 🎯 React 18 新特性
 
 ```javascript
-import { useModernXTransition } from 'modernx-react18/react18-utils';
+import { useModernXTransition } from 'modernx/react18-utils';
 
 function AsyncComponent() {
   const [isPending, startTransition] = useModernXTransition();
@@ -182,7 +182,7 @@ function AsyncComponent() {
 
 ## 🎉 开始使用
 
-1. **安装包**: `npm install modernx-react18`
+1. **安装包**: `npm install modernx`
 2. **查看文档**: 浏览本网站的完整文档
 3. **查看示例**: 运行示例项目了解用法
 4. **开始开发**: 在你的项目中使用新特性

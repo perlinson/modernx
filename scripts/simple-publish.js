@@ -103,4 +103,4 @@ try {
 }
 
 console.log('\n✨ 发布完成！现在你可以在项目中使用:');
-console.log('npm install modernx-react18');
+console.log('npm install modernx');

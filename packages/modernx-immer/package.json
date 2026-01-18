@@ -1,6 +1,6 @@
 {
   "name": "modernx-immer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Auto loading data binding plugin for modernx.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

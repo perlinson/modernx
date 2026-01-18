@@ -1,13 +1,13 @@
-# modernx-react18 重命名为 modernx 完成报告
+# modernx 重命名为 modernx 完成报告
 
 ## 🎯 重命名目标完成
 
-成功将 `modernx-react18` 重命名为 `modernx`，打造现代化的 React 状态管理框架。
+成功将 `modernx` 重命名为 `modernx`，打造现代化的 React 状态管理框架。
 
 ## ✅ 完成的工作
 
 ### 1. 核心包重命名
-- ✅ **主包**: `modernx-react18` → `modernx`
+- ✅ **主包**: `modernx` → `modernx`
 - ✅ **modernx-core**: `modernx-core` → `modernx-core`
 - ✅ **modernx-immer**: `modernx-immer` → `modernx-immer`
 - ✅ **modernx-loading**: `modernx-loading` → `modernx-loading`
@@ -22,9 +22,9 @@
 - ✅ **CLI 集成文档**: 更新所有引用
 
 ### 4. CLI 工具重命名
-- ✅ **CLI 包名**: `modernx-react18-cli` → `modernx-cli`
-- ✅ **CLI 入口**: `bin/modernx-react18` → `bin/modernx`
-- ✅ **CLI 命令**: `modernx-react18` → `modernx`
+- ✅ **CLI 包名**: `modernx-cli` → `modernx-cli`
+- ✅ **CLI 入口**: `bin/modernx` → `bin/modernx`
+- ✅ **CLI 命令**: `modernx` → `modernx`
 - ✅ **CLI 描述**: 更新为现代化框架 CLI
 
 ### 5. 模板系统重命名
@@ -32,7 +32,7 @@
 - ✅ **react18 模板**: 更新描述和依赖
 - ✅ **full 模板**: 更新描述和依赖
 - ✅ **enterprise 模板**: 更新描述和依赖
-- ✅ **依赖包**: `modernx-react18` → `modernx`
+- ✅ **依赖包**: `modernx` → `modernx`
 
 ### 6. 脚本和配置更新
 - ✅ **构建脚本**: 更新 CLI 构建脚本
@@ -44,20 +44,20 @@
 ### 包名映射
 ```json
 {
-  "modernx-react18": "modernx",
+  "modernx": "modernx",
   "modernx-core": "modernx-core", 
   "modernx-immer": "modernx-immer",
   "modernx-loading": "modernx-loading",
-  "modernx-react18-cli": "modernx-cli"
+  "modernx-cli": "modernx-cli"
 }
 ```
 
 ### CLI 命令更新
 ```bash
 # 旧命令
-modernx-react18 create my-app
-modernx-react18 add router
-modernx-react18 dev
+modernx create my-app
+modernx add router
+modernx dev
 
 # 新命令
 modernx create my-app
@@ -77,7 +77,7 @@ modernx dev
 ## 🎯 新特性
 
 ### ✅ 现代化定位
-1. **品牌现代化**: 从 "modernx-react18" 升级为 "modernx"
+1. **品牌现代化**: 从 "modernx" 升级为 "modernx"
 2. **定位清晰**: 现代化 React 状态管理框架
 3. **扩展性**: 支持生态系统发展
 
@@ -156,7 +156,7 @@ modernx add router
 
 **重命名任务圆满完成！**
 
-从 `modernx-react18` 到 `modernx` 的重命名，不仅是一个名称的变更，更是品牌定位的升级和用户体验的提升。
+从 `modernx` 到 `modernx` 的重命名，不仅是一个名称的变更，更是品牌定位的升级和用户体验的提升。
 
 **主要成果:**
 - ✅ 5个核心包重命名完成

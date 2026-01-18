@@ -1,9 +1,9 @@
-# 📦 使用 modernx-react18 示例
+# 📦 使用 modernx 示例
 
 ## 🚀 安装
 
 ```bash
-npm install modernx-react18
+npm install modernx
 ```
 
 ## 📖 基本用法
@@ -11,7 +11,7 @@ npm install modernx-react18
 ### 1. 创建应用
 
 ```javascript
-import { createApp } from 'modernx-react18';
+import { createApp } from 'modernx';
 
 const app = createApp({
   // 你的 models
@@ -41,7 +41,7 @@ export default app._store;
 
 ```javascript
 import React from 'react';
-import { connect } from 'modernx-react18';
+import { connect } from 'modernx';
 
 function Counter({ count, dispatch }) {
   return (
@@ -65,7 +65,7 @@ export default connect(({ count }) => ({ count }))(Counter);
 ### 1. 并发特性
 
 ```javascript
-import { useModernXTransition } from 'modernx-react18/react18-utils';
+import { useModernXTransition } from 'modernx/react18-utils';
 
 function AsyncComponent() {
   const [isPending, startTransition] = useModernXTransition();
@@ -89,7 +89,7 @@ function AsyncComponent() {
 ### 2. 自动批处理
 
 ```javascript
-import { batchUpdates } from 'modernx-react18/react18-utils';
+import { batchUpdates } from 'modernx/react18-utils';
 
 function BatchComponent() {
   const handleClick = () => {
@@ -112,7 +112,7 @@ function BatchComponent() {
 ### 3. React Router v6 兼容
 
 ```javascript
-import { RouterSwitch, CompatRoute, useCompatHistory } from 'modernx-react18/router-v6-compat';
+import { RouterSwitch, CompatRoute, useCompatHistory } from 'modernx/router-v6-compat';
 
 function App() {
   const history = useCompatHistory();
@@ -150,7 +150,7 @@ my-app/
   "name": "my-app",
   "version": "1.0.0",
   "dependencies": {
-    "modernx-react18": "^2.0.0-react18",
+    "modernx": "^2.0.0-react18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -167,7 +167,7 @@ my-app/
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createApp } from 'modernx-react18';
+import { createApp } from 'modernx';
 import App from './App';
 
 const app = createApp();
@@ -211,8 +211,8 @@ root.render(<App />);
 
 ```javascript
 import React from 'react';
-import { connect } from 'modernx-react18';
-import { useModernXTransition } from 'modernx-react18/react18-utils';
+import { connect } from 'modernx';
+import { useModernXTransition } from 'modernx/react18-utils';
 import Counter from './components/Counter';
 
 function App({ user, loading, dispatch }) {
@@ -226,7 +226,7 @@ function App({ user, loading, dispatch }) {
   
   return (
     <div>
-      <h1>modernx-react18 示例</h1>
+      <h1>modernx 示例</h1>
       
       {user ? (
         <div>
@@ -256,7 +256,7 @@ export default connect(({ global }) => ({
 
 ```javascript
 import React from 'react';
-import { connect } from 'modernx-react18';
+import { connect } from 'modernx';
 
 function Counter({ count, dispatch }) {
   return (
@@ -311,10 +311,10 @@ function delay(ms) {
 import modernx from 'modernx';
 
 // 新的导入
-import modernx from 'modernx-react18';
+import modernx from 'modernx';
 
 // 或者保持 API 兼容
-import { createApp, connect } from 'modernx-react18';
+import { createApp, connect } from 'modernx';
 ```
 
 ### 更新 package.json
@@ -323,7 +323,7 @@ import { createApp, connect } from 'modernx-react18';
 {
   "dependencies": {
 -   "modernx": "^2.6.0",
-+   "modernx-react18": "^2.0.0-react18",
++   "modernx": "^2.0.0-react18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
@@ -334,12 +334,12 @@ import { createApp, connect } from 'modernx-react18';
 
 ```bash
 npm uninstall modernx
-npm install modernx-react18
+npm install modernx
 npm install
 ```
 
 ## 🎉 完成！
 
-现在你可以在项目中使用 `modernx-react18` 了，享受 React 18 的所有新特性！
+现在你可以在项目中使用 `modernx` 了，享受 React 18 的所有新特性！
 
 如果有任何问题，请查看 [PUBLISH_GUIDE.md](./PUBLISH_GUIDE.md) 或提交 Issue。

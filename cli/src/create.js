@@ -1,6 +1,6 @@
 /**
- * modernx-react18 create 命令
- * 创建新的 modernx-react18 项目
+ * modernx create 命令
+ * 创建新的 modernx 项目
  */
 
 const { join, basename } = require('path');
@@ -15,7 +15,7 @@ const TEMPLATES_DIR = join(__dirname, '../templates');
 async function create(projectName, options) {
   const { template: templateName, install, git } = options;
   
-  console.log(chalk.blue.bold('\n🚀 Creating modernx-react18 project...'));
+  console.log(chalk.blue.bold('\n🚀 Creating modernx project...'));
   console.log(chalk.gray(`Project: ${projectName}`));
   console.log(chalk.gray(`Template: ${templateName}`));
   
@@ -65,7 +65,7 @@ async function selectTemplate(templateName) {
   const templates = {
     basic: {
       name: 'basic',
-      description: 'Basic modernx-react18 project',
+      description: 'Basic modernx project',
       files: ['package.json', 'vite.config.js', 'src/app.js', 'src/index.js']
     },
     full: {
@@ -96,7 +96,7 @@ async function selectTemplate(templateName) {
       name: 'template',
       message: 'Choose a template:',
       choices: [
-        { name: 'Basic - Basic modernx-react18 project', value: 'basic' },
+        { name: 'Basic - Basic modernx project', value: 'basic' },
         { name: 'Full - Full featured project', value: 'full' },
         { name: 'React 18 - Concurrent features demo', value: 'react18' },
         { name: 'Enterprise - Enterprise ready project', value: 'enterprise' }
@@ -148,7 +148,7 @@ async function processTemplateFiles(projectPath, variables) {
 async function createReadme(projectPath, template, projectName) {
   const readmeContent = `# ${projectName}
 
-A modernx-react18 project created with the ${template.name} template.
+A modernx project created with the ${template.name} template.
 
 ## Features
 
@@ -182,7 +182,7 @@ npm run build
 This project includes React 18 concurrent features:
 
 \`\`\`javascript
-import { useModernXTransition } from 'modernx-react18';
+import { useModernXTransition } from 'modernx';
 
 function MyComponent() {
   const [isPending, startTransition] = useModernXTransition();
@@ -199,7 +199,7 @@ function MyComponent() {
 
 ## Learn More
 
-- [modernx-react18 Documentation](https://github.com/perlinson/modernx)
+- [modernx Documentation](https://github.com/perlinson/modernx)
 - [React 18 Documentation](https://reactjs.org/)
 - [Vite Documentation](https://vitejs.dev/)
 `;

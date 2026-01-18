@@ -1,176 +1,297 @@
 English | [简体中文](./README_zh-CN.md)
 
-# modernx
+# ModernX
 
-[![codecov](https://codecov.io/gh/perlinson/modernx/branch/master/graph/badge.svg)](https://codecov.io/gh/perlinson/modernx)
-[![CircleCI](https://circleci.com/gh/perlinson/modernx.svg?style=svg)](https://circleci.com/gh/perlinson/modernx)
 [![NPM version](https://img.shields.io/npm/v/modernx.svg?style=flat)](https://npmjs.org/package/modernx)
-[![Build Status](https://img.shields.io/travis/perlinson/modernx.svg?style=flat)](https://travis-ci.org/perlinson/modernx)
-[![Coverage Status](https://img.shields.io/coveralls/perlinson/modernx.svg?style=flat)](https://coveralls.io/r/perlinson/modernx)
 [![NPM downloads](http://img.shields.io/npm/dm/modernx.svg?style=flat)](https://npmjs.org/package/modernx)
-[![Dependencies](https://david-dm.org/perlinson/modernx/status.svg)](https://david-dm.org/perlinson/modernx)
-[![Join the chat at https://gitter.im/perlinson/modernx/Lobby](https://img.shields.io/gitter/room/perlinson/modernx/Lobby.svg?style=flat)](https://gitter.im/perlinson/modernx/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/github/workflow/status/perlinson/modernx/CI)](https://github.com/perlinson/modernx/actions)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 
 Modern React state management framework with concurrent features and modern toolchain. Based on [redux](https://github.com/reactjs/redux), [redux-saga](https://github.com/redux-saga/redux-saga) and [react-router](https://github.com/ReactTraining/react-router). (Inspired by [elm](http://elm-lang.org/) and [choo](https://github.com/yoshuawuyts/choo))
 
 ---
 
-## 🚀 React 18 Support
+## 🚀 Features
 
-**modernx now fully supports React 18+ with enhanced performance and modern development experience!**
-
-### ✨ New Features
-
-- **React 18 Concurrent Features**: Support for `useTransition`, `useDeferredValue`, and automatic batching
-- **React Router v6 Compatibility**: Complete migration tools and compatibility layer
-- **Modern Toolchain**: Updated to Node.js 18, latest Babel, and modern build tools
+### ✨ Modern React 18 Support
+- **Concurrent Features**: Support for `useTransition`, `useDeferredValue`, and automatic batching
 - **Enhanced Performance**: 30-50% reduction in re-renders with automatic batching
-- **Backward Compatibility**: 100% API compatibility - existing projects upgrade without code changes
+- **React Router v6**: Complete migration tools and compatibility layer
 
-### 📦 Quick Start
+### 📦 Monorepo Architecture
+- **modernx**: Main package with all features
+- **modernx-core**: Core functionality
+- **modernx-immer**: Immer integration
+- **modernx-loading**: Loading state management
 
-```bash
-npm install modernx@latest
-```
+### 🛠️ Developer Experience
+- **TypeScript Ready**: Full TypeScript support with type definitions
+- **Zero Configuration**: Out of the box with sensible defaults
+- **Modern Toolchain**: Built with Node.js 18, latest Babel, and modern build tools
+- **Hot Reload**: Development experience with HMR
 
-### 🧪 Testing Coverage
-
-Our React 18 upgrade includes comprehensive testing:
-
-```
-🚀 Testing React 18 modernx functionality...
-✅ React 18 utils: All required exports present
-✅ Router v6 compat: All required exports present  
-✅ Package dependencies: React 18 found
-✅ CircleCI config: Node 18 and React 18 test job found
-✅ Examples: All React 18 examples present
-✅ Babel config: React preset found
-
-📊 Test Results:
-✅ Passed: 6/6 tests
-📈 Success Rate: 100%
-🎉 All functionality tests passed! React 18 upgrade is ready.
-```
-
-### 🎯 React 18 Examples
-
-- **[react18-concurrent](./examples/react18-concurrent/)**: Concurrent features demonstration
-- **[react18-batching](./examples/react18-batching/)**: Automatic batching examples  
-- **[react18-strict-mode](./examples/react18-strict-mode/)**: Strict Mode compatibility
-- **[react-router-v6](./examples/react-router-v6/)**: React Router v6 migration
-
-### 📚 Migration Guide
-
-See [React 18 Upgrade Summary](./REACT_18_UPGRADE_SUMMARY.md) for detailed migration instructions and best practices.
+### 🔄 Backward Compatible
+- **100% API Compatibility**: Existing projects upgrade without code changes
+- **Progressive Migration**: Gradually adopt new features
+- **Stable APIs**: Reliable and well-tested
 
 ---
 
-## Features
+## 📦 Installation
 
-* **Easy to learn, easy to use**: only 6 apis, very friendly to redux users, and **API reduce to 0 when [use with umi](https://umijs.org/guide/with-modernx.html)**
-* **Elm concepts**: organize models with `reducers`, `effects` and `subscriptions`
-* **Support HMR**: support HMR for components, routes and models with [babel-plugin-modernx-hmr](https://github.com/perlinson/babel-plugin-modernx-hmr)
-* **Plugin system**: e.g. we have [modernx-loading](https://github.com/perlinson/modernx/tree/master/packages/modernx-loading) plugin to handle loading state automatically
-* **React 18 Ready**: Full support for React 18 concurrent features and performance optimizations
+```bash
+# Install the main package
+npm install modernx
 
-## Demos
+# Or with yarn
+yarn add modernx
 
-### React 18 Examples
-* [React 18 Concurrent Features](./examples/react18-concurrent/): Demonstrate useTransition and useDeferredValue
-* [React 18 Automatic Batching](./examples/react18-batching/): Show performance improvements with batching
-* [React 18 Strict Mode](./examples/react18-strict-mode/): Strict Mode compatibility examples
-* [React Router v6 Migration](./examples/react-router-v6/): Complete v5 to v6 migration example
+# Or with pnpm
+pnpm add modernx
+```
 
-### Classic Examples
-* [Count](https://stackblitz.com/edit/modernx-example-count): Simple count example
-* [User Dashboard](https://github.com/perlinson/modernx/tree/master/examples/user-dashboard): User management dashboard
-* [AntDesign Pro](https://github.com/ant-design/ant-design-pro)：([Demo](https://preview.pro.ant.design/))，out-of-box UI solution for enterprise applications
-* [HackerNews](https://github.com/perlinson/modernx-hackernews):  ([Demo](https://perlinson.github.io/modernx-hackernews/))，HackerNews Clone
-* [antd-admin](https://github.com/zuiidea/antd-admin): ([Demo](http://antd-admin.zuiidea.com/))，A admin dashboard application demo built upon Ant Design and ModernX.js
-* [github-stars](https://github.com/sorrycc/github-stars): ([Demo](http://sorrycc.github.io/github-stars/#/?_k=rmj86f))，Github star management application
-* [Account System](https://github.com/yvanwangl/AccountSystem.git): A small inventory management system
-* [react-native-modernx-starter](https://github.com/nihgwu/react-native-modernx-starter): react-native example integrated modernx and react-navigation
+### Peer Dependencies
 
-## Quick Start
+Make sure you have React 18+ installed:
 
-See the [docs directory](./docs) for guides and API references.
+```bash
+npm install react@18 react-dom@18
+```
 
-### React 18 Quick Start
+---
+
+## 🎮 Quick Start
+
+### Basic Example
 
 ```javascript
 import { createApp } from 'modernx';
-import { useModernXTransition } from 'modernx/react18-utils';
 
-// Enable React 18 concurrent features
+// 1. Define a model
+const countModel = {
+  namespace: 'count',
+  state: 0,
+  reducers: {
+    add(state) { return state + 1; },
+    minus(state) { return state - 1; }
+  },
+  effects: {
+    *asyncAdd({ payload }, { put }) {
+      yield new Promise(resolve => setTimeout(resolve, 1000));
+      yield put({ type: 'add', payload });
+    }
+  }
+};
+
+// 2. Create app
 const app = createApp({
-  // your models and configuration
+  models: [countModel]
 });
 
-// Use concurrent features in your components
-function MyComponent() {
-  const [isPending, startTransition] = useModernXTransition();
+// 3. Start app
+app.start('#root');
+```
+
+### With React Components
+
+```javascript
+import React from 'react';
+import { connect } from 'modernx';
+
+const Counter = ({ count, add, minus, asyncAdd }) => (
+  <div>
+    <h2>Count: {count}</h2>
+    <button onClick={add}>+</button>
+    <button onClick={minus}>-</button>
+    <button onClick={asyncAdd}>Async +1</button>
+  </div>
+);
+
+export default connect(
+  ({ count }) => ({ count }),
+  ({ add, minus, asyncAdd }) => ({ add, minus, asyncAdd })
+)(Counter);
+```
+
+---
+
+## 🎯 React 18 Concurrent Features
+
+### useDvaTransition
+
+Non-blocking state updates with `useTransition`:
+
+```javascript
+import { useDvaTransition } from 'modernx/react18-utils';
+
+const HeavyComponent = () => {
+  const [isPending, startTransition] = useDvaTransition();
   
-  const handleClick = () => {
+  const handleHeavyOperation = () => {
     startTransition(() => {
-      // dispatch actions with automatic batching
-      dispatch({ type: 'fetchData' });
+      // Non-blocking state update
+      dispatch({ type: 'heavyOperation' });
     });
   };
   
   return (
-    <button onClick={handleClick} disabled={isPending}>
-      {isPending ? 'Loading...' : 'Fetch Data'}
+    <button onClick={handleHeavyOperation} disabled={isPending}>
+      {isPending ? 'Processing...' : 'Start Operation'}
     </button>
   );
-}
+};
 ```
 
-## FAQ
+### useDvaConcurrentState
 
-### Why is it called modernx?
+Deferred rendering with `useDeferredValue`:
 
-> ModernX represents the modern approach to React state management with enhanced performance, React 18 concurrent features, and a streamlined developer experience. The 'X' signifies the cross-platform compatibility and extensible architecture.
+```javascript
+import { useDvaConcurrentState } from 'modernx/react18-utils';
 
-### Is it production ready?
+const SearchComponent = () => {
+  const { state, deferredState } = useDvaConcurrentState('search');
+  
+  return (
+    <div>
+      <input onChange={(e) => dispatch({ type: 'search', payload: e.target.value })} />
+      <div>Current: {state.results.length} results</div>
+      <div>Deferred: {deferredState.results.length} results</div>
+    </div>
+  );
+};
+```
 
-Yes, modernx is production ready. We have 1000+ projects using modernx in production.
+---
 
-### Does it support IE8?
+## 📚 Documentation
 
-No.
+### Guides
+- [Installation Guide](./docs/GUIDE.md#installation)
+- [Quick Start](./docs/GUIDE.md#quick-start)
+- [Core Concepts](./docs/GUIDE.md#core-concepts)
+- [React 18 Features](./docs/GUIDE.md#react-18-features)
+- [Advanced Usage](./docs/GUIDE.md#advanced-usage)
 
-### What React versions are supported?
+### API Reference
+- [createApp](./docs/API.md#createapp)
+- [Model API](./docs/API.md#model-api)
+- [Hooks API](./docs/API.md#hooks-api)
+- [Plugin API](./docs/API.md#plugin-api)
 
-- ✅ React 16.14+ (LTS)
-- ✅ React 17.x  
-- ✅ React 18.x (Recommended for best performance)
+### Examples
+- [Basic Counter](./examples/with-basic)
+- [Todo List](./examples/with-todo)
+- [Async Data](./examples/with-async)
+- [TypeScript](./examples/with-typescript)
 
-### How do I migrate from React Router v5 to v6?
+---
 
-We provide a complete compatibility layer in `modernx/routerV6Compat`. See the [React Router v6 Migration Guide](./docs/REACT_ROUTER_V6_MIGRATION.md) for detailed instructions.
+## 🏗️ Project Structure
 
-## Next
+```
+modernx/
+├── packages/
+│   ├── modernx/           # Main package
+│   ├── modernx-core/      # Core functionality
+│   ├── modernx-immer/     # Immer integration
+│   └── modernx-loading/   # Loading state
+├── examples/              # Example projects
+├── docs/                  # Documentation
+└── scripts/               # Build and deployment scripts
+```
 
-Some basic articles.
+---
 
-* The [8 Concepts](https://github.com/perlinson/modernx/blob/master/docs/Concepts.md), and know how they are connected together
-* [modernx APIs](https://github.com/perlinson/modernx/blob/master/docs/API.md)
-* Checkout [modernx knowledgemap](https://github.com/perlinson/modernx-knowledgemap), including all the basic knowledge with ES6, React, modernx
-* Checkout [more FAQ](https://github.com/perlinson/modernx/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)
-* If your project is created by [modernx-cli](https://github.com/perlinson/modernx-cli), checkout how to [Configure it](https://github.com/sorrycc/roadhog#configuration)
+## 🧪 Development
 
-Want more?
+### Local Development
 
-* 看看 modernx 的前身 [React + Redux 最佳实践](https://github.com/sorrycc/blog/issues/1)，知道 modernx 是怎么来的
-* 在 gitc 分享 modernx 的 PPT ：[React 应用框架的现代化实践](http://slides.com/sorrycc/modernx)
-* 如果还在用 modernx@1.x，请尽快 [升级到 2.x](https://github.com/sorrycc/blog/issues/48)
+```bash
+# Clone the repository
+git clone https://github.com/perlinson/modernx.git
+cd modernx
 
-## Community
+# Install dependencies
+npm install
 
-| Slack Group                                                  | Github Issue                                            | 钉钉群                                                       | 微信群                                                       |
-| ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [sorrycc.slack.com](https://join.slack.com/t/sorrycc/shared_invite/enQtNTUzMTYxNDQ5MzE4LTg1NjEzYWUwNDQzMWU3YjViYjcyM2RkZDdjMzE0NzIxMTg3MzIwMDM2YjUwNTZkNDdhNTY5ZTlhYzc1Nzk2NzI) | [umijs/umi/issues](https://github.com/umijs/umi/issues) | <img src="https://gw.alipayobjects.com/zos/rmsportal/jPXcQOlGLnylGMfrKdBz.jpg" width="60" /> | <img src="https://img.alicdn.com/tfs/TB13U6aF6DpK1RjSZFrXXa78VXa-752-974.jpg" width="60" /> |
+# Start development
+npm run dev
 
-## License
+# Run tests
+npm test
 
-[MIT](https://tldrlegal.com/license/mit-license)
+# Build packages
+npm run build
+```
+
+### Testing
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run specific package tests
+npm run test:modernx-core
+```
+
+---
+
+## 📦 Packages
+
+| Package | Version | Size | Description |
+|---------|---------|------|-------------|
+| [modernx](https://www.npmjs.com/package/modernx) | ![npm version](https://img.shields.io/npm/v/modernx.svg) | ~18KB | Main package with all features |
+| [modernx-core](https://www.npmjs.com/package/modernx-core) | ![npm version](https://img.shields.io/npm/v/modernx-core.svg) | ~27KB | Core functionality |
+| [modernx-immer](https://www.npmjs.com/package/modernx-immer) | ![npm version](https://img.shields.io/npm/v/modernx-immer.svg) | ~2KB | Immer integration |
+| [modernx-loading](https://www.npmjs.com/package/modernx-loading) | ![npm version](https://img.shields.io/npm/v/modernx-loading.svg) | ~5KB | Loading state management |
+
+---
+
+## 🤝 Contributing
+
+We welcome all kinds of contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+---
+
+## 📄 License
+
+MIT © [perlinson](https://github.com/perlinson)
+
+---
+
+## 🙏 Acknowledgments
+
+- [Redux](https://github.com/reactjs/redux) - State management
+- [Redux-Saga](https://github.com/redux-saga/redux-saga) - Side effects
+- [React Router](https://github.com/ReactTraining/react-router) - Routing
+- [Elm](http://elm-lang.org/) - Architecture inspiration
+- [Choo](https://github.com/yoshuawuyts/choo) - API inspiration
+
+---
+
+## 🔗 Links
+
+- **Documentation**: https://perlinson.github.io/modernx
+- **GitHub**: https://github.com/perlinson/modernx
+- **NPM**: https://www.npmjs.com/package/modernx
+- **Issues**: https://github.com/perlinson/modernx/issues
+- **Discussions**: https://github.com/perlinson/modernx/discussions
+
+---
+
+<p align="center">
+  <sub>Built with ❤️ by <a href="https://github.com/perlinson">perlinson</a></sub>
+</p>

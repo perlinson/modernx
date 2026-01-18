@@ -53,10 +53,10 @@ program
 // 升级命令
 program
   .command('upgrade')
-  .description('Upgrade project to latest modernx-react18')
+  .description('Upgrade project to latest modernx')
   .action(async () => {
-    console.log('🚀 Upgrading project to modernx-react18...');
-    console.log('✅ Project is already using modernx-react18!');
+    console.log('🚀 Upgrading project to modernx...');
+    console.log('✅ Project is already using modernx!');
   });
 
 // 模板命令
@@ -65,7 +65,7 @@ program
   .description('List available templates')
   .action(async () => {
     console.log('📋 Available templates:');
-    console.log('  basic     - Basic modernx-react18 project');
+    console.log('  basic     - Basic modernx project');
     console.log('  full      - Full featured project with router, immer, loading');
     console.log('  react18   - React 18 concurrent features demo');
     console.log('  enterprise - Enterprise ready project with best practices');

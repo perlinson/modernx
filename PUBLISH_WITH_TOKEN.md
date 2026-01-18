@@ -1,4 +1,4 @@
-# 使用 Granular Access Token 发布 modernx-react18
+# 使用 Granular Access Token 发布 modernx
 
 ## 🛠️ 解决 2FA 发布问题
 
@@ -10,10 +10,10 @@
 
 1. 访问: https://www.npmjs.com/settings/perlinson/tokens/create
 2. 选择 **Granular Access Token**
-3. 设置名称: `modernx-react18-publish`
+3. 设置名称: `modernx-publish`
 4. 设置过期时间: 90 天
 5. 权限设置:
-   - **Packages**: 选择 `modernx-react18`
+   - **Packages**: 选择 `modernx`
    - **Access**: Read and write
    - **Scope**: 选择你的包范围
 6. 点击 **Create Token**

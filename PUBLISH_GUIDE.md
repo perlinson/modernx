@@ -1,11 +1,11 @@
-# 🚀 modernx-react18 发布指南
+# 🚀 modernx 发布指南
 
 ## 📋 发布前准备
 
 ### 1. 修改 package.json 信息
 ```json
 {
-  "name": "modernx-react18",  // 改为你的包名
+  "name": "modernx",  // 改为你的包名
   "version": "2.0.0-react18",
   "description": "React 18 enhanced modernx framework",
   "repository": {
@@ -53,20 +53,20 @@ npm run release
 
 ### 安装你的包
 ```bash
-npm install modernx-react18
+npm install modernx
 ```
 
 ### 使用方式
 ```javascript
 // 方式 1: 直接导入
-import { createApp } from 'modernx-react18';
+import { createApp } from 'modernx';
 
 // 方式 2: 别名导入 (如果想保持原有 API)
-import modernx from 'modernx-react18';
+import modernx from 'modernx';
 const { createApp } = modernx;
 
 // 使用 React 18 新特性
-import { useModernXTransition } from 'modernx-react18/react18-utils';
+import { useModernXTransition } from 'modernx/react18-utils';
 ```
 
 ## 🔄 替代方案
@@ -147,10 +147,10 @@ npm ERR! 404 Not Found - GET https://registry.npmjs.org/package-name
 ### 验证发布
 ```bash
 # 检查包是否存在
-npm view modernx-react18
+npm view modernx
 
 # 安装测试
-npm install modernx-react18
+npm install modernx
 ```
 
 ## 📞 社区支持
@@ -161,4 +161,4 @@ npm install modernx-react18
 
 ---
 
-**🎉 恭喜！你的 modernx-react18 现在可以发布到 npm 并在项目中使用了！**
+**🎉 恭喜！你的 modernx 现在可以发布到 npm 并在项目中使用了！**

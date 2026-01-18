@@ -1,19 +1,19 @@
-# modernx-react18 CLI 集成完成报告
+# modernx CLI 集成完成报告
 
 ## 🎯 集成目标
 
-将 modernx-cli 功能集成到 modernx-react18 项目中，提供现代化的 CLI 工具。
+将 modernx-cli 功能集成到 modernx 项目中，提供现代化的 CLI 工具。
 
 ## ✅ 完成的工作
 
 ### 1. CLI 核心架构
 - ✅ 创建 CLI 目录结构 (`/cli`)
-- ✅ 实现 CLI 入口文件 (`bin/modernx-react18`)
+- ✅ 实现 CLI 入口文件 (`bin/modernx`)
 - ✅ 开发核心命令 (`create`, `add`, `dev`, `build`)
 - ✅ 配置 package.json 和依赖
 
 ### 2. 项目模板系统
-- ✅ **basic 模板**: 基础 modernx-react18 项目
+- ✅ **basic 模板**: 基础 modernx 项目
 - ✅ **full 模板**: 完整功能项目（router, immer, loading）
 - ✅ **react18 模板**: React 18 并发特性演示
 - ✅ **enterprise 模板**: 企业级最佳实践
@@ -42,37 +42,37 @@
 ### 创建项目
 ```bash
 # 基本项目
-modernx-react18 create my-app
+modernx create my-app
 
 # React 18 特性项目
-modernx-react18 create my-app --template react18
+modernx create my-app --template react18
 
 # 完整功能项目
-modernx-react18 create my-app --template full
+modernx create my-app --template full
 ```
 
 ### 添加功能
 ```bash
 # 添加路由
-modernx-react18 add router
+modernx add router
 
 # 添加 Immer
-modernx-react18 add immer
+modernx add immer
 
 # 添加 TypeScript
-modernx-react18 add typescript
+modernx add typescript
 ```
 
 ### 开发命令
 ```bash
 # 开发服务器
-modernx-react18 dev
+modernx dev
 
 # 生产构建
-modernx-react18 build
+modernx build
 
 # 列出模板
-modernx-react18 template
+modernx template
 ```
 
 ## 🏗️ 项目结构
@@ -151,10 +151,10 @@ npm run cli:dev
 ### 2. 项目创建
 ```bash
 # 全局安装
-npm install -g modernx-react18-cli
+npm install -g modernx-cli
 
 # 创建项目
-modernx-react18 create my-app
+modernx create my-app
 
 # 进入项目目录
 cd my-app
@@ -169,20 +169,20 @@ npm run dev
 ### 3. 功能添加
 ```bash
 # 添加路由
-modernx-react18 add router
+modernx add router
 
 # 添加 Immer 支持
-modernx-react18 add immer
+modernx add immer
 
 # 添加 TypeScript
-modernx-react18 add typescript
+modernx add typescript
 ```
 
 ## 🎯 React 18 特性
 
 ### 并发更新
 ```javascript
-import { useModernXTransition } from 'modernx-react18';
+import { useModernXTransition } from 'modernx';
 
 function MyComponent() {
   const [isPending, startTransition] = useModernXTransition();
@@ -203,7 +203,7 @@ function MyComponent() {
 
 ### 延迟值处理
 ```javascript
-import { useModernXConcurrentState } from 'modernx-react18';
+import { useModernXConcurrentState } from 'modernx';
 
 function SearchComponent() {
   const { state, deferredState } = useModernXConcurrentState('search');
@@ -266,7 +266,7 @@ npm run cli:publish
 
 ## 🎉 总结
 
-modernx-react18 CLI 集成完成！提供了现代化的项目脚手架工具，支持 React 18 并发特性，为用户提供了完整的开发体验。
+modernx CLI 集成完成！提供了现代化的项目脚手架工具，支持 React 18 并发特性，为用户提供了完整的开发体验。
 
 **主要成果:**
 - ✅ 4 个项目模板（basic, full, react18, enterprise）

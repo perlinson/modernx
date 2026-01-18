@@ -48,10 +48,10 @@ async function buildCLI() {
     console.log(chalk.gray('  ✓ React 18 concurrent features'));
     
     console.log(chalk.blue.bold('\n🚀 Usage:'));
-    console.log(chalk.gray('  npx modernx-react18 create my-app'));
-    console.log(chalk.gray('  npx modernx-react18 add router'));
-    console.log(chalk.gray('  npx modernx-react18 dev'));
-    console.log(chalk.gray('  npx modernx-react18 build'));
+    console.log(chalk.gray('  npx modernx create my-app'));
+    console.log(chalk.gray('  npx modernx add router'));
+    console.log(chalk.gray('  npx modernx dev'));
+    console.log(chalk.gray('  npx modernx build'));
     
   } catch (error) {
     console.error(chalk.red('\n❌ CLI build failed:'), error.message);

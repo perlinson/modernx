@@ -1,8 +1,8 @@
-# modernx-react18 重命名为 modernx 计划
+# modernx 重命名为 modernx 计划
 
 ## 🎯 重命名目标
 
-将 `modernx-react18` 重命名为 `modernx`，打造现代化的 React 状态管理框架。
+将 `modernx` 重命名为 `modernx`，打造现代化的 React 状态管理框架。
 
 ## 📦 新名称信息
 
@@ -78,7 +78,7 @@
 ### CLI 命令更新
 ```bash
 # 旧命令
-modernx-react18 create my-app
+modernx create my-app
 
 # 新命令  
 modernx create my-app
@@ -87,7 +87,7 @@ modernx create my-app
 ### 导入语句更新
 ```javascript
 // 旧导入
-import { createApp } from 'modernx-react18';
+import { createApp } from 'modernx';
 
 // 新导入
 import { createApp } from 'modernx';

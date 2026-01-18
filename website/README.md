@@ -1,6 +1,6 @@
-# modernx-react18 Documentation
+# modernx Documentation
 
-欢迎来到 modernx-react18 的文档网站！
+欢迎来到 modernx 的文档网站！
 
 ## 📖 文档导航
 
@@ -14,13 +14,13 @@
 ### 安装
 
 ```bash
-npm install modernx-react18
+npm install modernx
 ```
 
 ### 基本使用
 
 ```javascript
-import { createApp, connect } from 'modernx-react18';
+import { createApp, connect } from 'modernx';
 
 const app = createApp({
   // 你的 models
@@ -32,7 +32,7 @@ app.start();
 ### React 18 新特性
 
 ```javascript
-import { useModernXTransition } from 'modernx-react18/react18-utils';
+import { useModernXTransition } from 'modernx/react18-utils';
 
 function MyComponent() {
   const [isPending, startTransition] = useModernXTransition();
@@ -54,7 +54,7 @@ function MyComponent() {
 ## 📚 项目结构
 
 ```
-modernx-react18/
+modernx/
 ├── packages/
 │   ├── modernx/
 │   │   ├── src/
@@ -89,7 +89,7 @@ modernx-react18/
 ## 📖 更多资源
 
 - [GitHub 仓库](https://github.com/perlinson/modernx)
-- [NPM 包](https://www.npmjs.com/package/modernx-react18)
+- [NPM 包](https://www.npmjs.com/package/modernx)
 - [React 18 升级总结](../REACT_18_UPGRADE_SUMMARY.md)
 - [使用示例](../USAGE_EXAMPLE.md)
 - [发布指南](../PUBLISH_GUIDE.md)

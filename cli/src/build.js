@@ -1,5 +1,5 @@
 /**
- * modernx-react18 build 命令
+ * modernx build 命令
  * 构建项目用于生产环境
  */
 
@@ -13,9 +13,9 @@ async function build(options) {
   console.log(chalk.blue.bold('\n🔨 Building project for production...'));
   console.log(chalk.gray(`Output directory: ${output}`));
   
-  // 检查是否为 modernx-react18 项目
+  // 检查是否为 modernx 项目
   if (!isModernXProject()) {
-    console.log(chalk.red('❌ Current directory is not a modernx-react18 project!'));
+    console.log(chalk.red('❌ Current directory is not a modernx project!'));
     process.exit(1);
   }
   
@@ -49,7 +49,7 @@ function isModernXProject() {
   try {
     const packageJson = fs.readJsonSync(packageJsonPath);
     return packageJson.dependencies && (
-      packageJson.dependencies['modernx-react18'] ||
+      packageJson.dependencies['modernx'] ||
       packageJson.dependencies.modernx
     );
   } catch (error) {
@@ -156,7 +156,7 @@ function showBuildSuccess(output) {
   console.log(chalk.blue.bold('\n📚 Learn More:'));
   console.log(chalk.gray('  Build docs: https://vitejs.dev/guide/build.html'));
   console.log(chalk.gray('  React 18: https://reactjs.org/'));
-  console.log(chalk.gray('  modernx-react18: https://github.com/perlinson/modernx'));
+  console.log(chalk.gray('  modernx: https://github.com/perlinson/modernx'));
 }
 
 module.exports = build;

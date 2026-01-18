@@ -1,0 +1,138 @@
+.Counter {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.Counter h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.Counter-display {
+  margin-bottom: 30px;
+}
+
+.Counter-number {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Counter-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.Counter-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.Counter-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Counter-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Counter-button--add {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+
+.Counter-button--minus {
+  background: linear-gradient(135deg, #f44336, #da190b);
+  color: white;
+}
+
+.Counter-button--reset {
+  background: linear-gradient(135deg, #FF9800, #F57C00);
+  color: white;
+}
+
+.Counter-button--async {
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+  color: white;
+}
+
+.Counter-async {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.Counter-info {
+  text-align: left;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.Counter-info h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.Counter-info ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.Counter-info li {
+  margin-bottom: 8px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.Counter-info li::before {
+  content: "•";
+  color: #667eea;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+@media (max-width: 768px) {
+  .Counter {
+    padding: 20px;
+  }
+  
+  .Counter-number {
+    font-size: 3rem;
+  }
+  
+  .Counter-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Counter-button {
+    width: 100%;
+    max-width: 200px;
+  }
+}

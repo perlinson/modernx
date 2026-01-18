@@ -1,5 +1,5 @@
 /**
- * modernx-react18 dev 命令
+ * modernx dev 命令
  * 启动开发服务器
  */
 
@@ -14,9 +14,9 @@ async function dev(options) {
   console.log(chalk.gray(`Port: ${port}`));
   console.log(chalk.gray(`Host: ${host}`));
   
-  // 检查是否为 modernx-react18 项目
+  // 检查是否为 modernx 项目
   if (!isModernXProject()) {
-    console.log(chalk.red('❌ Current directory is not a modernx-react18 project!'));
+    console.log(chalk.red('❌ Current directory is not a modernx project!'));
     process.exit(1);
   }
   
@@ -50,7 +50,7 @@ function isModernXProject() {
   try {
     const packageJson = fs.readJsonSync(packageJsonPath);
     return packageJson.dependencies && (
-      packageJson.dependencies['modernx-react18'] ||
+      packageJson.dependencies['modernx'] ||
       packageJson.dependencies.modernx
     );
   } catch (error) {

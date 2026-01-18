@@ -1,6 +1,6 @@
-# modernx-react18 CLI
+# modernx CLI
 
-The command line utility for modernx-react18 - React 18 enhanced modernx framework.
+The command line utility for modernx - React 18 enhanced modernx framework.
 
 ## Features
 
@@ -14,10 +14,10 @@ The command line utility for modernx-react18 - React 18 enhanced modernx framewo
 
 ```bash
 # Install globally
-npm install -g modernx-react18-cli
+npm install -g modernx-cli
 
 # Or use npx
-npx modernx-react18 create my-app
+npx modernx create my-app
 ```
 
 ## Usage
@@ -26,18 +26,18 @@ npx modernx-react18 create my-app
 
 ```bash
 # Create with default template (basic)
-modernx-react18 create my-app
+modernx create my-app
 
 # Create with specific template
-modernx-react18 create my-app --template react18
+modernx create my-app --template react18
 
 # Create without installing dependencies
-modernx-react18 create my-app --no-install
+modernx create my-app --no-install
 ```
 
 ### Available Templates
 
-- **basic**: Basic modernx-react18 project
+- **basic**: Basic modernx project
 - **full**: Full featured project with router, immer, loading
 - **react18**: React 18 concurrent features demo
 - **enterprise**: Enterprise ready project with best practices
@@ -46,29 +46,29 @@ modernx-react18 create my-app --no-install
 
 ```bash
 # Add React Router
-modernx-react18 add router
+modernx add router
 
 # Add Immer for immutable state
-modernx-react18 add immer
+modernx add immer
 
 # Add TypeScript support
-modernx-react18 add typescript
+modernx add typescript
 
 # Add testing setup
-modernx-react18 add testing
+modernx add testing
 ```
 
 ### Development Commands
 
 ```bash
 # Start development server
-modernx-react18 dev
+modernx dev
 
 # Build for production
-modernx-react18 build
+modernx build
 
 # List available templates
-modernx-react18 template
+modernx template
 ```
 
 ## Project Structure
@@ -99,7 +99,7 @@ This CLI creates projects that include React 18 concurrent features:
 ### useTransition Hook
 
 ```javascript
-import { useModernXTransition } from 'modernx-react18';
+import { useModernXTransition } from 'modernx';
 
 function MyComponent() {
   const [isPending, startTransition] = useModernXTransition();
@@ -121,7 +121,7 @@ function MyComponent() {
 ### useDeferredValue Hook
 
 ```javascript
-import { useModernXConcurrentState } from 'modernx-react18';
+import { useModernXConcurrentState } from 'modernx';
 
 function SearchComponent() {
   const { state, deferredState } = useModernXConcurrentState('search');
@@ -191,7 +191,7 @@ MIT License - see LICENSE file for details.
 
 ## Learn More
 
-- [modernx-react18 Documentation](https://github.com/perlinson/modernx)
+- [modernx Documentation](https://github.com/perlinson/modernx)
 - [React 18 Documentation](https://reactjs.org/)
 - [Vite Documentation](https://vitejs.dev/)
 - [modernx Framework](https://github.com/perlinson/modernx)
