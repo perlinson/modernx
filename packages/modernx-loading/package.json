@@ -1,6 +1,6 @@
 {
   "name": "modernx-loading",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Auto loading data binding plugin for modernx.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -19,8 +19,8 @@
   "author": "perlinson <perlinson2024@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "modernx": "*",
-    "modernx-core": "*"
+    "modernx": "1.0.1",
+    "modernx-core": "1.0.1"
   },
   "peerDependencies": {
     "modernx-core": "^1.0.0"
