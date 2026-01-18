@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: |
         echo "Installing dependencies..."
-        npm install --no-package-lock
+        npm install --legacy-peer-deps
         echo "Dependencies installed successfully!"
     
     - name: List files
