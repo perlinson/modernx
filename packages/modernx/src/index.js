@@ -14,21 +14,17 @@ import {
 import { bindActionCreators } from 'redux';
 import { utils, create, saga, createDvaReact18Enhancer } from 'modernx-core';
 import * as router from 'react-router-dom';
-import * as routerRedux from 'connected-react-router';
+import { createRouterMiddleware } from './router-middleware';
 import * as routerV6Compat from './router-v6-compat';
 
-const { connectRouter, routerMiddleware } = routerRedux;
 const { isFunction } = utils;
 const { useHistory, useLocation, useParams, useRouteMatch } = router;
 
 export default function(opts = {}) {
   const history = opts.history || createHashHistory();
   const createOpts = {
-    initialReducer: {
-      router: connectRouter(history),
-    },
     setupMiddlewares(middlewares) {
-      return [routerMiddleware(history), ...middlewares];
+      return [createRouterMiddleware(history), ...middlewares];
     },
     setupApp(app) {
       app._history = patchHistory(history);
@@ -150,7 +146,6 @@ export { connect, connectAdvanced, useSelector, useDispatch, useStore, shallowEq
 export { bindActionCreators };
 export { router };
 export { saga };
-export { routerRedux };
 export { createBrowserHistory, createMemoryHistory, createHashHistory };
 export { useHistory, useLocation, useParams, useRouteMatch };
 export { 
