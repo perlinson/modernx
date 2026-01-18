@@ -1,1 +1,35 @@
-{"name": "modernx-logger", "version": "1.0.2", "description": "Redux logger plugin for modernx", "main": "dist/index.js", "module": "dist/index.esm.js", "sideEffects": false, "dependencies": {"@babel/runtime": "^7.20.0", "redux-logger": "^3.0.6"}, "peerDependencies": {"modernx": "^1.0.0"}, "devDependencies": {"modernx": "*"}, "files": ["dist", "src"], "repository": {"type": "git", "url": "https://github.com/perlinson/modernx/tree/master/packages/modernx-logger"}, "homepage": "https://github.com/perlinson/modernx", "author": "perlinson <perlinson2024@gmail.com>", "keywords": ["modernx", "modernx-plugin", "logger", "redux"], "license": "MIT"}
+{
+  "name": "modernx-logger",
+  "version": "1.1.0",
+  "description": "Redux logger plugin for modernx",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "sideEffects": false,
+  "dependencies": {
+    "@babel/runtime": "^7.20.0",
+    "redux-logger": "^3.0.6"
+  },
+  "peerDependencies": {
+    "modernx": "^1.0.0"
+  },
+  "devDependencies": {
+    "modernx": "1.1.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/perlinson/modernx/tree/master/packages/modernx-logger"
+  },
+  "homepage": "https://github.com/perlinson/modernx",
+  "author": "perlinson <perlinson2024@gmail.com>",
+  "keywords": [
+    "modernx",
+    "modernx-plugin",
+    "logger",
+    "redux"
+  ],
+  "license": "MIT"
+}

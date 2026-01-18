@@ -1,6 +1,6 @@
 {
   "name": "modernx-cli",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "The modernx command line utility.",
   "repository": {
     "type": "git",
@@ -21,15 +21,15 @@
     "chalk": "^4.1.2",
     "commander": "^9.4.1",
     "fs-extra": "^11.1.1",
+    "handlebars": "^4.7.8",
     "inquirer": "^9.1.4",
+    "ora": "^6.3.1",
     "path-exists": "^5.0.0",
+    "semver": "^7.5.4",
     "through2": "^4.0.2",
     "update-notifier": "^6.0.2",
     "vinyl-fs": "^3.0.3",
-    "which": "^3.0.1",
-    "ora": "^6.3.1",
-    "semver": "^7.5.4",
-    "handlebars": "^4.7.8"
+    "which": "^3.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.15",
