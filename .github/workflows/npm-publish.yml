@@ -1,0 +1,117 @@
+name: NPM Publish
+
+on:
+  push:
+    tags:
+      - 'v*'  # 触发条件：推送以 v 开头的标签 (如 v1.0.2)
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 获取完整历史记录
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@perlinson'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bootstrap packages
+        run: npx lerna bootstrap --no-ci
+
+      - name: Build packages
+        run: |
+          npm run build:simple
+          # 或者逐个构建
+          cd packages/modernx-core && npx father-build
+          cd ../modernx-immer && npx father-build
+          cd ../modernx-loading && npx father-build
+          cd ../modernx && npx father-build
+
+      - name: Check package versions
+        run: |
+          echo "Checking package versions..."
+          node -e "
+            const fs = require('fs');
+            const packages = ['modernx-core', 'modernx-immer', 'modernx-loading', 'modernx'];
+            packages.forEach(pkg => {
+              const pkgPath = \`packages/\${pkg}/package.json\`;
+              const pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+              console.log(\`\${pkg}: \${pkgJson.version}\`);
+            });
+          "
+
+      - name: Publish to NPM
+        run: |
+          echo "Publishing packages to NPM..."
+          
+          # 按依赖顺序发布
+          echo "Publishing modernx-core..."
+          cd packages/modernx-core
+          npm publish --access public
+          cd ../..
+          
+          echo "Publishing modernx-immer..."
+          cd packages/modernx-immer
+          npm publish --access public
+          cd ../..
+          
+          echo "Publishing modernx-loading..."
+          cd packages/modernx-loading
+          npm publish --access public
+          cd ../..
+          
+          echo "Publishing modernx..."
+          cd packages/modernx
+          npm publish --access public
+          cd ../..
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify publish
+        run: |
+          echo "Verifying published packages..."
+          npm view modernx@$(node -p "require('./packages/modernx/package.json').version")
+          npm view modernx-core@$(node -p "require('./packages/modernx-core/package.json').version")
+          npm view modernx-immer@$(node -p "require('./packages/modernx-immer/package.json').version")
+          npm view modernx-loading@$(node -p "require('./packages/modernx-loading/package.json').version")
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ## 🚀 ModernX Release ${{ github.ref }}
+            
+            ### 📦 Published Packages
+            - modernx@$(node -p "require('./packages/modernx/package.json').version")
+            - modernx-core@$(node -p "require('./packages/modernx-core/package.json').version")
+            - modernx-immer@$(node -p "require('./packages/modernx-immer/package.json').version")
+            - modernx-loading@$(node -p "require('./packages/modernx-loading/package.json').version")
+            
+            ### 📋 Changes
+            See [CHANGELOG.md](https://github.com/perlinson/modernx/blob/main/CHANGELOG.md) for detailed changes.
+            
+            ### 🚀 Installation
+            \`\`\`bash
+            npm install modernx@latest
+            \`\`\`
+            
+            ### 🔗 Links
+            - [Documentation](https://perlinson.github.io/modernx)
+            - [NPM Package](https://www.npmjs.com/package/modernx)
+            - [GitHub Repository](https://github.com/perlinson/modernx)
+          draft: false
+          prerelease: false

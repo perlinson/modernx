@@ -1,28 +1,63 @@
-name: Node CI
+name: CI
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
+  test:
+    runs-on: ubuntu-latest
+    
     strategy:
       matrix:
-        node_version: [10.x, 12.x]
-        os: [ubuntu-latest]
+        node-version: [16.x, 18.x, 20.x]
+    
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node_version }}
-    - run: npm install
-    - run: npm run bootstrap
-    - run: npm run build
-    - run: npm run test -- --forceExit
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Bootstrap packages
+      run: npx lerna bootstrap --no-ci
+    
+    - name: Build packages
+      run: |
+        npm run build:simple
+        # 或者逐个构建
+        cd packages/modernx-core && npx father-build
+        cd ../modernx-immer && npx father-build
+        cd ../modernx-loading && npx father-build
+        cd ../modernx && npx father-build
+    
+    - name: Run tests
+      run: npm test
       env:
         CI: true
-        HEADLESS: false
-        PROGRESS: none
         NODE_ENV: test
         NODE_OPTIONS: --max_old_space_size=4096
+    
+    - name: Validate monorepo
+      run: npm run validate
+    
+    - name: Check package sizes
+      run: |
+        echo "Package sizes:"
+        du -sh packages/*/dist || echo "No dist directories found"
+    
+    - name: Upload coverage reports
+      if: matrix.node-version == '18.x'
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage/lcov.info
+        flags: unittests
+        name: codecov-umbrella
 
