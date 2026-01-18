@@ -39,7 +39,7 @@
     "history": "^5.3.0",
     "invariant": "^2.2.4",
     "isomorphic-fetch": "^3.0.0",
-    "modernx-core": "1.0.1",
+    "modernx-core": "*",
     "react-redux": "^8.0.0",
     "react-router-dom": "^6.8.0",
     "redux": "^4.2.0"

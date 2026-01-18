@@ -13,7 +13,7 @@
     "modernx": "^1.0.0"
   },
   "devDependencies": {
-    "modernx": "1.0.1"
+    "modernx": "*"
   },
   "files": [
     "dist",

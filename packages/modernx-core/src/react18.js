@@ -3,7 +3,7 @@
  * 将 React 18 新特性直接集成到 modernx-core 中
  */
 
-import { createElement } from 'react';
+import React from 'react';
 
 // 检测 React 18 并发特性是否可用
 export function isReact18ConcurrentAvailable() {

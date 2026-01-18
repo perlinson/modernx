@@ -19,8 +19,8 @@
   "author": "perlinson <perlinson2024@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "modernx": "1.0.1",
-    "modernx-core": "1.0.1"
+    "modernx": "*",
+    "modernx-core": "*"
   },
   "peerDependencies": {
     "modernx-core": "^1.0.0"
