@@ -23,7 +23,7 @@ jobs:
           scope: '@perlinson'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Bootstrap packages
         run: npx lerna bootstrap --no-ci

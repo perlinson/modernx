@@ -1,0 +1,72 @@
+name: CI Simple
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    
+    - name: Install dependencies
+      run: |
+        echo "Installing dependencies..."
+        npm install --no-package-lock
+        echo "Dependencies installed successfully!"
+    
+    - name: List files
+      run: |
+        echo "Current directory:"
+        ls -la
+        echo ""
+        echo "Packages directory:"
+        ls -la packages/
+        echo ""
+        echo "Node modules:"
+        ls -la node_modules/ || echo "No node_modules found"
+    
+    - name: Validate packages
+      run: |
+        echo "Validating package structure..."
+        for pkg in modernx modernx-core modernx-immer modernx-loading; do
+          if [ -f "packages/$pkg/package.json" ]; then
+            echo "✅ $pkg package.json exists"
+          else
+            echo "❌ $pkg package.json missing"
+          fi
+        done
+    
+    - name: Build packages
+      run: |
+        echo "Building packages..."
+        cd packages/modernx-core && npx father-build
+        cd ../modernx-immer && npx father-build
+        cd ../modernx-loading && npx father-build
+        cd ../modernx && npx father-build
+        echo "Build completed!"
+    
+    - name: Check build results
+      run: |
+        echo "Checking build results..."
+        for pkg in modernx modernx-core modernx-immer modernx-loading; do
+          if [ -d "packages/$pkg/dist" ]; then
+            echo "✅ $pkg/dist exists"
+            ls -la packages/$pkg/dist/
+          else
+            echo "❌ $pkg/dist missing"
+          fi
+        done
