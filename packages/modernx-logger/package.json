@@ -1,6 +1,6 @@
 {
   "name": "modernx-logger",
-  "version": "1.1.1",
+  "version": "1.3.0",
   "description": "Redux logger plugin for modernx",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -32,5 +32,5 @@
     "redux"
   ],
   "license": "MIT",
-  "gitHead": "51becbca63ce6f2eec6a969a77eedb6b16428e50"
+  "gitHead": "f14cf7c9309547fc2d9013ac8baa5495e2641750"
 }

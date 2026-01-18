@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "../../dva-logger"
+		},
+		{
+			"path": "../../demo-project"
 		}
 	],
 	"settings": {}

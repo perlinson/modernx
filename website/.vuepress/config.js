@@ -9,6 +9,7 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
       { text: 'API', link: '/api/' },
+      { text: 'Packages', link: '/packages/' },
       { text: 'Examples', link: '/examples/' },
       { text: 'Migration', link: '/migration/' },
       { text: 'GitHub', link: 'https://github.com/perlinson/modernx' }
@@ -43,12 +44,40 @@ module.exports = {
         '/api/effects',
         '/api/hooks'
       ],
+      '/packages/': [
+        {
+          title: 'Core Packages',
+          collapsable: false,
+          children: [
+            '/packages/modernx',
+            '/packages/modernx-core',
+            '/packages/modernx-cli'
+          ]
+        },
+        {
+          title: 'Development Tools',
+          collapsable: false,
+          children: [
+            '/packages/modernx-gui',
+            '/packages/modernx-logger'
+          ]
+        },
+        {
+          title: 'Plugins',
+          collapsable: false,
+          children: [
+            '/packages/modernx-immer',
+            '/packages/modernx-loading'
+          ]
+        }
+      ],
       '/examples/': [
         '/examples/',
         '/examples/basic',
         '/examples/with-router',
         '/examples/with-typescript',
-        '/examples/with-testing'
+        '/examples/with-testing',
+        '/examples/with-gui'
       ],
       '/migration/': [
         '/migration/',
