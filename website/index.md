@@ -166,13 +166,13 @@ const app = createApp({
 
 | 包名 | 版本 | 描述 |
 |------|------|------|
-| modernx | 1.1.1 | 主包 |
-| modernx-cli | 1.1.1 | 命令行工具 |
-| modernx-core | 1.1.1 | 核心库 |
+| modernx | 1.3.0 | 主包 |
+| modernx-cli | 1.3.0 | 命令行工具 |
+| modernx-core | 1.3.0 | 核心库 |
 | modernx-gui | 1.3.0 | 可视化调试工具 |
-| modernx-logger | 1.1.1 | 日志插件 |
-| modernx-immer | 1.1.1 | Immer 集成 |
-| modernx-loading | 1.1.1 | Loading 状态管理 |
+| modernx-logger | 1.3.0 | 日志插件 |
+| modernx-immer | 1.3.0 | Immer 集成 |
+| modernx-loading | 1.3.0 | Loading 状态管理 |
 
 ---
 
