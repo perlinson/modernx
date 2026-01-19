@@ -1,329 +1,85 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModernX - Modern React State Management</title>
-    <meta name="description" content="Modern React state management framework with concurrent features and modern toolchain">
-    <meta name="keywords" content="React, state management, Redux, React 18, concurrent, modern">
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ModernX</title>
+    <meta name="generator" content="VuePress 1.9.10">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="ModernX - Modern React State Management">
-    <meta property="og:description" content="Modern React state management framework with concurrent features and modern toolchain">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://perlinson.github.io/modernx">
+    <meta name="description" content="Modern React state management framework with concurrent features">
     
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ModernX - Modern React State Management">
-    <meta name="twitter:description" content="Modern React state management framework with concurrent features">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-                sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: white;
-        }
-        
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        
-        .badge {
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-        }
-        
-        .content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .card {
-            background: rgba(255,255,255,0.95);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .card h3 {
-            color: #764ba2;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn:hover {
-            transform: scale(1.05);
-        }
-        
-        .features {
-            background: rgba(255,255,255,0.95);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-        }
-        
-        .features h2 {
-            text-align: center;
-            color: #764ba2;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .feature {
-            text-align: center;
-            padding: 1rem;
-        }
-        
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .installation {
-            background: rgba(255,255,255,0.95);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-        }
-        
-        .installation h2 {
-            color: #764ba2;
-            margin-bottom: 1.5rem;
-        }
-        
-        .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 1.5rem;
-            border-radius: 10px;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        
-        .footer {
-            text-align: center;
-            color: white;
-            padding: 2rem 0;
-        }
-        
-        .footer a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-        }
-        
-        .footer a:hover {
-            opacity: 1;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .content {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <div class="logo">ModernX</div>
-            <div class="tagline">Modern React State Management with Concurrent Features</div>
-            <div class="badges">
-                <div class="badge">React 18 Ready</div>
-                <div class="badge">TypeScript Support</div>
-                <div class="badge">Monorepo Architecture</div>
-                <div class="badge">Zero Configuration</div>
-            </div>
-        </header>
-        
-        <div class="content">
-            <div class="card">
-                <h3>🚀 Modern Architecture</h3>
-                <p>Built with modern tools and best practices. Monorepo structure with Lerna and npm workspaces for efficient development.</p>
-                <a href="https://github.com/perlinson/modernx" class="btn">View on GitHub</a>
-            </div>
-            
-            <div class="card">
-                <h3>⚡ React 18 Concurrent</h3>
-                <p>Full support for React 18 concurrent features including useTransition, useDeferredValue, and automatic batching.</p>
-                <a href="https://github.com/perlinson/modernx#react-18-features" class="btn">Learn More</a>
-            </div>
-            
-            <div class="card">
-                <h3>📦 Easy to Use</h3>
-                <p>Simple API with only 6 core functions. Perfect for both beginners and experienced developers.</p>
-                <a href="https://github.com/perlinson/modernx#quick-start" class="btn">Get Started</a>
-            </div>
-        </div>
-        
-        <div class="features">
-            <h2>✨ Key Features</h2>
-            <div class="feature-grid">
-                <div class="feature">
-                    <div class="feature-icon">🔄</div>
-                    <h4>Concurrent Updates</h4>
-                    <p>React 18 useTransition and useDeferredValue support</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h4>TypeScript Ready</h4>
-                    <p>Full TypeScript definitions and support</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔧</div>
-                    <h4>Plugin System</h4>
-                    <p>Extensible plugin architecture</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h4>DevTools Support</h4>
-                    <p>Redux DevTools integration</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🧪</div>
-                    <h4>Well Tested</h4>
-                    <p>Comprehensive test coverage</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📚</div>
-                    <h4>Great Documentation</h4>
-                    <p>Detailed guides and examples</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="installation">
-            <h2>🚀 Quick Start</h2>
-            <p>Install ModernX in seconds:</p>
-            <div class="code-block">
-                npm install modernx
-            </div>
-            <p>Or using yarn:</p>
-            <div class="code-block">
-                yarn add modernx
-            </div>
-            <p>Start building your modern React applications:</p>
-            <div class="code-block">
-import { createApp } from 'modernx';
+    <link rel="preload" href="/modernx/assets/css/0.styles.7b828826.css" as="style"><link rel="preload" href="/modernx/assets/js/app.89c01cbf.js" as="script"><link rel="preload" href="/modernx/assets/js/2.3d5021cd.js" as="script"><link rel="preload" href="/modernx/assets/js/1.f4cd91dc.js" as="script"><link rel="preload" href="/modernx/assets/js/35.ae284f2a.js" as="script"><link rel="prefetch" href="/modernx/assets/js/10.a5603e21.js"><link rel="prefetch" href="/modernx/assets/js/11.1e3b401f.js"><link rel="prefetch" href="/modernx/assets/js/12.00d462b1.js"><link rel="prefetch" href="/modernx/assets/js/13.1dc05648.js"><link rel="prefetch" href="/modernx/assets/js/14.da9197ce.js"><link rel="prefetch" href="/modernx/assets/js/15.ef624351.js"><link rel="prefetch" href="/modernx/assets/js/16.6ebb19a3.js"><link rel="prefetch" href="/modernx/assets/js/17.ec17d98a.js"><link rel="prefetch" href="/modernx/assets/js/18.179ed69d.js"><link rel="prefetch" href="/modernx/assets/js/19.599ad32f.js"><link rel="prefetch" href="/modernx/assets/js/20.bdc16c97.js"><link rel="prefetch" href="/modernx/assets/js/21.3ff21a0e.js"><link rel="prefetch" href="/modernx/assets/js/22.704096b7.js"><link rel="prefetch" href="/modernx/assets/js/23.e99aba69.js"><link rel="prefetch" href="/modernx/assets/js/24.c0302e7b.js"><link rel="prefetch" href="/modernx/assets/js/25.76b33c9b.js"><link rel="prefetch" href="/modernx/assets/js/26.75ab9594.js"><link rel="prefetch" href="/modernx/assets/js/27.f8fabe5d.js"><link rel="prefetch" href="/modernx/assets/js/28.2ef3eda1.js"><link rel="prefetch" href="/modernx/assets/js/29.384e110c.js"><link rel="prefetch" href="/modernx/assets/js/3.adc08618.js"><link rel="prefetch" href="/modernx/assets/js/30.d8dcb06e.js"><link rel="prefetch" href="/modernx/assets/js/31.491897d2.js"><link rel="prefetch" href="/modernx/assets/js/32.71be85cc.js"><link rel="prefetch" href="/modernx/assets/js/33.eece3008.js"><link rel="prefetch" href="/modernx/assets/js/34.bacc9e82.js"><link rel="prefetch" href="/modernx/assets/js/36.24ee1c20.js"><link rel="prefetch" href="/modernx/assets/js/37.0df79dd0.js"><link rel="prefetch" href="/modernx/assets/js/38.0aa7ac75.js"><link rel="prefetch" href="/modernx/assets/js/39.64a03e66.js"><link rel="prefetch" href="/modernx/assets/js/4.d112ee6e.js"><link rel="prefetch" href="/modernx/assets/js/40.e8745bcc.js"><link rel="prefetch" href="/modernx/assets/js/41.31e79e37.js"><link rel="prefetch" href="/modernx/assets/js/42.dea95db6.js"><link rel="prefetch" href="/modernx/assets/js/5.7141bfbf.js"><link rel="prefetch" href="/modernx/assets/js/6.00e7cf51.js"><link rel="prefetch" href="/modernx/assets/js/7.2210c270.js"><link rel="prefetch" href="/modernx/assets/js/vendors~docsearch.0644ee0a.js">
+    <link rel="stylesheet" href="/modernx/assets/css/0.styles.7b828826.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/modernx/" aria-current="page" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">ModernX</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/modernx/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Home
+</a></div><div class="nav-item"><a href="/modernx/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/modernx/api/" class="nav-link">
+  API
+</a></div><div class="nav-item"><a href="/modernx/packages/" class="nav-link">
+  Packages
+</a></div><div class="nav-item"><a href="/modernx/examples/" class="nav-link">
+  Examples
+</a></div><div class="nav-item"><a href="/modernx/migration/" class="nav-link">
+  Migration
+</a></div><div class="nav-item"><a href="https://github.com/perlinson/modernx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/modernx/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Home
+</a></div><div class="nav-item"><a href="/modernx/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/modernx/api/" class="nav-link">
+  API
+</a></div><div class="nav-item"><a href="/modernx/packages/" class="nav-link">
+  Packages
+</a></div><div class="nav-item"><a href="/modernx/examples/" class="nav-link">
+  Examples
+</a></div><div class="nav-item"><a href="/modernx/migration/" class="nav-link">
+  Migration
+</a></div><div class="nav-item"><a href="https://github.com/perlinson/modernx" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <!----> </aside> <main aria-labelledby="main-title" class="home"><header class="hero"><!----> <h1 id="main-title">
+      ModernX
+    </h1> <p class="description">
+      Modern React state management framework with concurrent features
+    </p> <p class="action"><a href="/modernx/guide/installation.html" class="nav-link action-button">
+  快速开始
+</a></p></header> <div class="features"><div class="feature"><h2>🚀 React 18 支持</h2> <p>完全支持 React 18 的并发特性，包括 useTransition、useDeferredValue 和自动批处理</p></div><div class="feature"><h2>🔄 向后兼容</h2> <p>100% API 兼容，现有项目无需修改即可升级</p></div><div class="feature"><h2>📦 Monorepo 架构</h2> <p>模块化设计，按需引入，支持 Tree Shaking</p></div><div class="feature"><h2>🎯 性能优化</h2> <p>通过自动批处理减少 30-50% 的重渲染</p></div><div class="feature"><h2>🛠️ 开发工具</h2> <p>包含 CLI 工具、GUI 调试器、Logger 插件</p></div><div class="feature"><h2>📚 完整生态</h2> <p>涵盖状态管理、路由、加载、日志等完整解决方案</p></div></div> <div class="theme-default-content custom content__default"><h2 id="🎯-欢迎使用-modernx"><a href="#🎯-欢迎使用-modernx" class="header-anchor">#</a> 🎯 欢迎使用 ModernX</h2> <p>ModernX 是一个现代化的 React 状态管理框架，基于 Redux、Redux-Saga 和 React Router，专为 React 18 并发特性而优化。</p> <h2 id="✨-核心特性"><a href="#✨-核心特性" class="header-anchor">#</a> ✨ 核心特性</h2> <h3 id="🚀-react-18-并发特性"><a href="#🚀-react-18-并发特性" class="header-anchor">#</a> 🚀 React 18 并发特性</h3> <ul><li><strong>useTransition</strong>: 非阻塞状态更新</li> <li><strong>useDeferredValue</strong>: 延迟渲染优化</li> <li><strong>自动批处理</strong>: 减少 30-50% 重渲染</li> <li><strong>Strict Mode</strong>: 完全兼容</li></ul> <h3 id="📦-完整的-monorepo-生态"><a href="#📦-完整的-monorepo-生态" class="header-anchor">#</a> 📦 完整的 Monorepo 生态</h3> <h4 id="🔧-核心包"><a href="#🔧-核心包" class="header-anchor">#</a> 🔧 核心包</h4> <ul><li><strong><a href="/modernx/packages/modernx/">modernx</a></strong> - 主包，包含所有功能</li> <li><strong><a href="/modernx/packages/modernx-core/">modernx-core</a></strong> - 核心功能，轻量级</li> <li><strong><a href="/modernx/packages/modernx-cli/">modernx-cli</a></strong> - 命令行工具</li></ul> <h4 id="🎨-开发工具"><a href="#🎨-开发工具" class="header-anchor">#</a> 🎨 开发工具</h4> <ul><li><strong><a href="/modernx/packages/modernx-gui/">modernx-gui</a></strong> - 可视化调试工具 ⭐</li> <li><strong><a href="/modernx/packages/modernx-logger/">modernx-logger</a></strong> - 日志插件</li></ul> <h4 id="🔌-功能插件"><a href="#🔌-功能插件" class="header-anchor">#</a> 🔌 功能插件</h4> <ul><li><strong><a href="/modernx/packages/modernx-immer/">modernx-immer</a></strong> - Immer 集成</li> <li><strong><a href="/modernx/packages/modernx-loading/">modernx-loading</a></strong> - Loading 状态管理</li></ul> <h3 id="🛠️-开发体验"><a href="#🛠️-开发体验" class="header-anchor">#</a> 🛠️ 开发体验</h3> <ul><li><strong>TypeScript 支持</strong>: 完整的类型定义</li> <li><strong>热重载</strong>: 开发时自动重载</li> <li><strong>测试友好</strong>: 完整的测试工具链</li> <li><strong>零配置</strong>: 开箱即用</li></ul> <h2 id="🎮-快速体验"><a href="#🎮-快速体验" class="header-anchor">#</a> 🎮 快速体验</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 安装 ModernX</span>
+<span class="token function">npm</span> <span class="token function">install</span> modernx
 
-const app = createApp({
-  // your models and configuration
-});
+<span class="token comment"># 创建应用</span>
+<span class="token function">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> from <span class="token string">'modernx'</span><span class="token punctuation">;</span>
 
-app.start('#root');
-            </div>
-        </div>
-        
-        <div class="content">
-            <div class="card">
-                <h3>📖 Documentation</h3>
-                <p>Comprehensive guides, API reference, and examples to help you get started quickly.</p>
-                <a href="https://github.com/perlinson/modernx#documentation" class="btn">Read Docs</a>
-            </div>
-            
-            <div class="card">
-                <h3>💡 Examples</h3>
-                <p>Real-world examples and boilerplates to kickstart your next project.</p>
-                <a href="https://github.com/perlinson/modernx#examples" class="btn">View Examples</a>
-            </div>
-            
-            <div class="card">
-                <h3>🤝 Contributing</h3>
-                <p>Join our community and help make ModernX even better. All contributions are welcome!</p>
-                <a href="https://github.com/perlinson/modernx#contributing" class="btn">Contribute</a>
-            </div>
-        </div>
-        
-        <footer>
-            <p>&copy; 2024 ModernX. Built with ❤️ by <a href="https://github.com/perlinson">perlinson</a></p>
-            <p>
-                <a href="https://github.com/perlinson/modernx">GitHub</a> •
-                <a href="https://www.npmjs.com/package/modernx">npm</a> •
-                <a href="https://github.com/perlinson/modernx/issues">Issues</a>
-            </p>
-        </footer>
-    </div>
-</body>
+const app <span class="token operator">=</span> createApp<span class="token punctuation">(</span><span class="token punctuation">{</span>
+  models: <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      namespace: <span class="token string">'count'</span>,
+      state: <span class="token number">0</span>,
+      reducers: <span class="token punctuation">{</span>
+        add<span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token builtin class-name">return</span> state + <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>,
+        minus<span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token builtin class-name">return</span> state - <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app.start<span class="token punctuation">(</span><span class="token string">'#root'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="📦-包生态概览"><a href="#📦-包生态概览" class="header-anchor">#</a> 📦 包生态概览</h2> <h3 id="🎯-modernx-gui-v1-3-0"><a href="#🎯-modernx-gui-v1-3-0" class="header-anchor">#</a> 🎯 ModernX GUI v1.3.0</h3> <p>现代化的可视化调试工具，提供：</p> <ul><li>📊 实时状态监控</li> <li>📝 模型编辑器</li> <li>📋 Logger 集成</li> <li>🎨 现代化 UI</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 启动 GUI</span>
+npx modernx-gui@1.3.0
+</code></pre></div><h3 id="🛠️-modernx-cli"><a href="#🛠️-modernx-cli" class="header-anchor">#</a> 🛠️ ModernX CLI</h3> <p>强大的命令行工具：</p> <ul><li>📁 项目创建</li> <li>🔧 代码生成</li> <li>🚀 快速部署</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 创建新项目</span>
+npx modernx-cli create my-app
+</code></pre></div><h3 id="📊-modernx-logger"><a href="#📊-modernx-logger" class="header-anchor">#</a> 📊 ModernX Logger</h3> <p>完整的日志解决方案：</p> <ul><li>📝 Redux 日志记录</li> <li>🔍 状态变化追踪</li> <li>⚡ 性能监控</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> logger <span class="token keyword">from</span> <span class="token string">'modernx-logger'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="📚-文档导航"><a href="#📚-文档导航" class="header-anchor">#</a> 📚 文档导航</h2> <h3 id="📖-核心文档"><a href="#📖-核心文档" class="header-anchor">#</a> 📖 核心文档</h3> <ul><li><strong><a href="/modernx/guide/">指南</a></strong> - 从入门到进阶的完整指南</li> <li><strong><a href="/modernx/api/">API</a></strong> - 详细的 API 参考</li> <li><strong><a href="/modernx/examples/">示例</a></strong> - 实际项目示例</li> <li><strong><a href="/modernx/migration/">迁移</a></strong> - 从其他框架迁移</li></ul> <h3 id="📦-包文档"><a href="#📦-包文档" class="header-anchor">#</a> 📦 包文档</h3> <ul><li><strong><a href="/modernx/packages/modernx/">modernx</a></strong> - 主包文档</li> <li><strong><a href="/modernx/packages/modernx-cli/">modernx-cli</a></strong> - CLI 工具文档</li> <li><strong><a href="/modernx/packages/modernx-gui/">modernx-gui</a></strong> - GUI 工具文档</li> <li><strong><a href="/modernx/packages/modernx-logger/">modernx-logger</a></strong> - Logger 插件文档</li> <li><strong><a href="/modernx/packages/modernx-immer/">modernx-immer</a></strong> - Immer 集成文档</li> <li><strong><a href="/modernx/packages/modernx-loading/">modernx-loading</a></strong> - Loading 组件文档</li></ul> <h2 id="🌟-为什么选择-modernx"><a href="#🌟-为什么选择-modernx" class="header-anchor">#</a> 🌟 为什么选择 ModernX？</h2> <h3 id="🔄-完全兼容"><a href="#🔄-完全兼容" class="header-anchor">#</a> 🔄 完全兼容</h3> <ul><li>API 100% 兼容现有项目</li> <li>无需修改现有代码</li> <li>渐进式升级路径</li></ul> <h3 id="⚡-性能优先"><a href="#⚡-性能优先" class="header-anchor">#</a> ⚡ 性能优先</h3> <ul><li>React 18 并发特性优化</li> <li>自动批处理减少重渲染</li> <li>智能依赖追踪</li></ul> <h3 id="🛠️-开发友好"><a href="#🛠️-开发友好" class="header-anchor">#</a> 🛠️ 开发友好</h3> <ul><li>完整的 TypeScript 支持</li> <li>丰富的开发工具</li> <li>详细的错误提示</li></ul> <h3 id="📦-生产就绪"><a href="#📦-生产就绪" class="header-anchor">#</a> 📦 生产就绪</h3> <ul><li>经过大型项目验证</li> <li>完整的测试覆盖</li> <li>活跃的社区支持</li></ul> <h2 id="🚀-开始使用"><a href="#🚀-开始使用" class="header-anchor">#</a> 🚀 开始使用</h2> <div style="text-align:center;margin:2rem 0;"><a href="/guide/installation" style="display:inline-block;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);color:white;padding:1rem 2rem;border-radius:25px;text-decoration:none;font-weight:500;transition:transform 0.3s ease;">
+    立即开始 →
+  </a></div> <h2 id="📊-版本信息"><a href="#📊-版本信息" class="header-anchor">#</a> 📊 版本信息</h2> <table><thead><tr><th>包名</th> <th>版本</th> <th>描述</th></tr></thead> <tbody><tr><td>modernx</td> <td>1.1.1</td> <td>主包</td></tr> <tr><td>modernx-cli</td> <td>1.1.1</td> <td>命令行工具</td></tr> <tr><td>modernx-core</td> <td>1.1.1</td> <td>核心库</td></tr> <tr><td>modernx-gui</td> <td>1.3.0</td> <td>可视化调试工具</td></tr> <tr><td>modernx-logger</td> <td>1.1.1</td> <td>日志插件</td></tr> <tr><td>modernx-immer</td> <td>1.1.1</td> <td>Immer 集成</td></tr> <tr><td>modernx-loading</td> <td>1.1.1</td> <td>Loading 状态管理</td></tr></tbody></table> <hr> <p><strong>🚀 享受 React 18 带来的现代化开发体验！</strong></p></div> <div class="footer">
+    MIT Licensed | Copyright © 2024-present
+  </div></main></div><div class="global-ui"><!----></div></div>
+    <script src="/modernx/assets/js/app.89c01cbf.js" defer></script><script src="/modernx/assets/js/2.3d5021cd.js" defer></script><script src="/modernx/assets/js/1.f4cd91dc.js" defer></script><script src="/modernx/assets/js/35.ae284f2a.js" defer></script>
+  </body>
 </html>
