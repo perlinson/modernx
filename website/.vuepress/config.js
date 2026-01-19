@@ -1,7 +1,7 @@
 module.exports = {
   title: 'ModernX',
   description: 'Modern React state management framework with concurrent features',
-  base: '/modernx/',
+  base: '/modernx',
   dest: 'dist',
   port: 8000,
   themeConfig: {
