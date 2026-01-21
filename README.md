@@ -21,12 +21,16 @@ Modern React state management framework with concurrent features and modern tool
 
 ### 📦 Monorepo Architecture
 - **modernx**: Main package with all features
-- **modernx-core**: Core functionality
-- **modernx-immer**: Immer integration
+- **modernx-core**: Core functionality and React integration
+- **modernx-immer**: Immer integration for immutable updates
 - **modernx-loading**: Loading state management
+- **modernx-logger**: Redux logger plugin
+- **modernx-cli**: Command-line tools and scaffolding
+- **modernx-gui**: Development GUI and debugging tools
 
 ### 🛠️ Developer Experience
-- **TypeScript Ready**: Full TypeScript support with type definitions
+- **Full TypeScript Support**: Complete TypeScript support with type definitions and ESLint integration
+- **Code Quality**: ESLint + @typescript-eslint + Prettier for consistent code style
 - **Zero Configuration**: Out of the box with sensible defaults
 - **Modern Toolchain**: Built with Node.js 18, latest Babel, and modern build tools
 - **Hot Reload**: Development experience with HMR
@@ -114,6 +118,69 @@ export default connect(
   ({ count }) => ({ count }),
   ({ add, minus, asyncAdd }) => ({ add, minus, asyncAdd })
 )(Counter);
+```
+
+---
+
+## 🛠️ Development
+
+### Contributing
+
+We welcome contributions! Please see our [Developer Guide](./docs/DEVELOPER_GUIDE.md) for detailed instructions.
+
+### Quick Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/perlinson/modernx.git
+cd modernx
+
+# Install dependencies
+npm install
+
+# Bootstrap packages
+npm run bootstrap
+
+# Link development dependencies
+npm run dev:link
+
+# Start development
+npm run dev
+```
+
+### Development Commands
+
+```bash
+# Build all packages
+npm run build
+
+# Run tests
+npm test
+
+# Type checking
+npm run typecheck
+
+# Lint code
+npm run lint
+
+# Validate monorepo
+npm run validate:quick
+```
+
+### Monorepo Management
+
+```bash
+# Workspace status
+npm run workspaces:status
+
+# Link internal dependencies
+npm run dev:link
+
+# Clean all packages
+npm run clean:all
+
+# Run scripts across packages
+npm run run:all build
 ```
 
 ---
@@ -224,11 +291,11 @@ const SearchComponent = () => {
 ## 📚 Documentation
 
 ### Guides
-- [Installation Guide](./docs/GUIDE.md#installation)
-- [Quick Start](./docs/GUIDE.md#quick-start)
-- [Core Concepts](./docs/GUIDE.md#core-concepts)
-- [React 18 Features](./docs/GUIDE.md#react-18-features)
-- [Advanced Usage](./docs/GUIDE.md#advanced-usage)
+- [Installation Guide](./docs/GettingStarted.md#installation)
+- [Quick Start](./docs/GettingStarted.md#quick-start)
+- [Core Concepts](./docs/Concepts.md)
+- [React 18 Features](./docs/GettingStarted.md#react-18-features)
+- [Advanced Usage](./docs/GettingStarted.md#advanced-usage)
 
 ### API Reference
 - [createApp](./docs/API.md#createapp)
@@ -238,9 +305,10 @@ const SearchComponent = () => {
 
 ### Examples
 - [Basic Counter](./examples/with-basic)
-- [Todo List](./examples/with-todo)
-- [Async Data](./examples/with-async)
-- [TypeScript](./examples/with-typescript)
+- [Todo List](./examples/user-dashboard)
+- [Async Data](./examples/with-basic)
+- [React 18 Concurrent](./examples/react18-concurrent)
+- [React Router v6](./examples/react-router-v6)
 
 ---
 
@@ -252,9 +320,13 @@ modernx/
 │   ├── modernx/           # Main package
 │   ├── modernx-core/      # Core functionality
 │   ├── modernx-immer/     # Immer integration
-│   └── modernx-loading/   # Loading state
+│   ├── modernx-loading/   # Loading state
+│   ├── modernx-logger/    # Logger plugin
+│   ├── modernx-cli/       # Command-line tools
+│   └── modernx-gui/       # Development GUI
 ├── examples/              # Example projects
 ├── docs/                  # Documentation
+├── website/              # VuePress website
 └── scripts/               # Build and deployment scripts
 ```
 
@@ -305,12 +377,15 @@ npm run test:modernx-core
 | [modernx-core](https://www.npmjs.com/package/modernx-core) | ![npm version](https://img.shields.io/npm/v/modernx-core.svg) | ~27KB | Core functionality |
 | [modernx-immer](https://www.npmjs.com/package/modernx-immer) | ![npm version](https://img.shields.io/npm/v/modernx-immer.svg) | ~2KB | Immer integration |
 | [modernx-loading](https://www.npmjs.com/package/modernx-loading) | ![npm version](https://img.shields.io/npm/v/modernx-loading.svg) | ~5KB | Loading state management |
+| [modernx-logger](https://www.npmjs.com/package/modernx-logger) | ![npm version](https://img.shields.io/npm/v/modernx-logger.svg) | ~3KB | Redux logger plugin |
+| [modernx-cli](https://www.npmjs.com/package/modernx-cli) | ![npm version](https://img.shields.io/npm/v/modernx-cli.svg) | ~8KB | Command-line tools |
+| [modernx-gui](https://www.npmjs.com/package/modernx-gui) | ![npm version](https://img.shields.io/npm/v/modernx-gui.svg) | ~12KB | Development GUI |
 
 ---
 
 ## 🤝 Contributing
 
-We welcome all kinds of contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.
+We welcome all kinds of contributions! Please see our [Developer Guide](./docs/DEVELOPER_GUIDE.md) for details.
 
 ### Development Workflow
 
